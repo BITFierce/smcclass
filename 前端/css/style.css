@@ -1,17 +1,17 @@
 #container {
-    width:1000px;
+    width: 100%;
 }
 #header {
     background-color: #db4544;
-    height: 50px;
-    width: 1000px;
+    height: 60px;
+    width: 100%;
     float: top;
     text-align: center;
 }
 #menu {
     background-color: #101b2a;
     font-size: 16px;
-    height: 500px;
+    height: 100%;
     width: 150px;
     float: left;
     padding: 0px;
