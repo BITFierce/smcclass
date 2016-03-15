@@ -1,0 +1,49 @@
+<html>
+
+<head>
+ <title>山东省</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<head>
+<script src="js/loadFun.js" type="text/javascript"></script>
+<script src="js/Show.js" type="text/javascript"></script>
+</head>
+
+<body onload="loadFun()">
+<div id="container">
+
+<div id="header">
+<h1>山东省人力资源</h1>
+</div>
+
+<form id="form1" runat="server">
+<div id="menu">
+<ul>
+<li><a href="#" onclick="Show('rule')">企业信息</a>
+<ul id="rule">
+<li><a href="#">完善企业信息</a></li>
+</ul>
+</li>
+<li><a href="#" onclick="Show('sheet')">人力资源表格</a>
+<ul id="sheet">
+<li><a href="#">填写调查期表格</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</form>
+
+<div id="mainbody">
+<iframe id="main" src="ttt.html" width="850" height="500" frameborder="0" name="detail"></iframe>
+</div>
+
+<div id="footer">
+copyright ShangDong
+</div>
+
+</div>
+
+
+</body>
+</html>
