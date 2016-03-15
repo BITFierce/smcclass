@@ -1,7 +1,7 @@
 <html>
 
 <head>
- <title>山东省</title>
+ <title>山东省人力资源市场数据采集系统</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
@@ -20,27 +20,31 @@
 <form id="form1" runat="server">
 <div id="menu">
 <ul>
+
 <li><a href="#" onclick="Show('rule')">企业信息</a>
 <ul id="rule">
-<li><a href="detail.html" target="detail">完善企业信息</a></li>
+<li><a href="detail.html" target="inform">完善企业信息</a></li>
 </ul>
 </li>
+
 <li><a href="#" onclick="Show('sheet')">人力资源表格</a>
 <ul id="sheet">
-<li><a href="#">填写调查期表格</a></li>
+<li><a href="survey.html" target="inform">填写调查期表格</a></li>
 </ul>
 </li>
+
 <li><a href="#" onclick="Show('inform')">通知信息</a>
 <ul id="inform">
-<li><a href="#">查看通知</a></li>
+<li><a href="inform.html" target="inform">查看通知</a></li>
 </ul>
 </li>
+
 </ul>
 </div>
 </form>
 
 <div id="mainbody">
-<iframe id="main" src="index.html" width="850" height="500" frameborder="0" name="detail"></iframe>
+<iframe id="main" src="index.html" width="100%" height="100%" frameborder="0" name="inform" align="right"></iframe>
 </div>
 
 <div id="footer">
