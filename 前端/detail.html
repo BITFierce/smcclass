@@ -11,7 +11,14 @@
 </style>
 </head>
 
-<h2>完善企业信息</h2>
+<script>
+function changePage()
+{
+	window.location.href="cover.html";
+}
+</script>
+
+<h2>完善企业信息:</h2>
 
 <table id="information" border="0" align="center">
 <tr>
@@ -144,7 +151,7 @@
  <td>
  <form name="sure" action="" method="get">
  <input type="submit" value="确认"/>
- <input type="button" value="返回"/>
+ <input type="button" value="返回" onclick="changePage()"/>
  </form>
  </td>
 </tr>

@@ -20,6 +20,13 @@
 </style>
 </head>
 
+<script>
+function changePage()
+{
+	window.location.href="cover.html";
+}
+</script>
+
 <h2>调查期：3月份至4月份</h2>
 
 <form id="demand" name="Query" action="" method="get">
@@ -133,8 +140,8 @@
 <tr>
  <td>
  <form name="sure" action="" method="get">
- <input type="submit" value="提交">
- <input type="button" value="返回">
+ <input type="submit" value="提交"/>
+ <input type="button" value="返回" onclick="changePage()"/>
  </td>
 </tr>
 
