@@ -1,12 +1,15 @@
-﻿*{
-	margin:0;
+*{
+    margin:0;
 }
-
+#container {
+    width: 100%;
+}
 #header {
-    background-color:#db4544;
-    height:54px;
-    width:100%;
-    float:top;
+    background-color: #db4544;
+    height: 54px;
+    width: 100%;
+    float: top;
+    text-align: center;
 }
 
 #logo{
@@ -40,71 +43,64 @@
 }
 
 #menu {
-    background-color:#0f1a2a;
-    font-size:16px;
-    height:600px;
-    width:170px;
-    float:left;
+    background-color: #101b2a;
+    font-size: 16px;
+    height: 100%;
+    width: 170px;
+    float: left;
+    padding: 0px;
+    margin: 0px;
 }
-
-#menu_header{
-	width:20px;
-	height:40px;
-	float:left;
-	margin:0 75px;
+#mainbody {
+    background-color: #ffffff;
+    height: 100%;
+    float: left;
 }
-
-#menu_header img{
-	height:20px;
-	margin:10px 0;
+#footer {
+    background-color: #99bbbb;
+    clear: both;
+    float: bottom;
+    text-align: center;
 }
-
-#menu_container{
-	width:170px;
-	float:left;
-	font-size:14px;
-	font-family:Microsoft YaHei;
-	line-height:40px;
-	color:#fff;
-}
-
 #menu ul {
-    width:170px;
-    margin:0;
-    list-style-type:none;
-    padding:0px;
-    background-color:#101b2a;
+    width: 170px;
+    margin: 0;
+    list-style-type: none;
+    padding: 0px;
+    background-color: #101b2a;
 }
 #menu ul li {
-    width:150px;
-    background-color: #041123;
-	padding-left:20px;
+    width: 170px;
+    background-color: #000000;
+	font-weight: bold;
 }
 #menu ul li a {
-    display:block;
-    color:#ffffff;
+    display: block;
+    color: #ffffff;
     text-align: left;
-    text-decoration:none;
-    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 0px 10px 30px;
+    font-size: 16px;
 }
 #menu ul li a:hover {
     color: #ffffff;
     text-align: left;
     text-decoration: none; 
-    font-size: 14px;
+    padding: 10px 0px 10px 30px;
+    font-size: 16px;
 }
 #menu ul li ul {
     list-style-type: none
 }
 #menu ul li ul li {
-    width: 150px;
+    width: 170px;
 }
 #menu ul li ul li a {
     display: block;
     padding: 6px 0px 6px 60px;
     text-align: left;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
 }
 #menu ul li ul li a:hover {
     padding: 6px 0px 6px 60px;
@@ -113,20 +109,6 @@
     font-size: 16px;
     color: black;
     background-color: #a9201e;
-}
-
-#mainbody {
-    background-color: #ffffff;
-    height:500px;
-    width: 700px;
-    float: left;
-}
-
-#footer {
-    background-color: #99bbbb;
-    clear: both;
-    float: bottom;
-    text-align: center;
 }
 
 h1 {
@@ -141,4 +123,11 @@ li {
 }
 a {
     color: #ffffff;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border-style: none;
 }
