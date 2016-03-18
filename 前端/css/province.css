@@ -43,6 +43,21 @@
 	margin:12px;
 }
 
+#exit{
+	position:fixed;
+	width:100px;
+	height:28px;
+	line-height:25px;
+	color:#fff;
+	background-color:#db4544;
+	font-size:14px;
+	text-align:center;
+	font-family:Microsoft YaHei;
+	top:54px;
+	right:30px;
+	display:none;
+}
+
 #menu {
     background-color:#0f1a2a;
     font-size:16px;

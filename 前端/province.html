@@ -17,8 +17,16 @@
 	<div id="header">
 		<div id="logo"></div>
 		<span id="title">山东省人力资源市场数据采集系统</span>
-		<span id="name">当前用户：Bigblack(省级)</span>
+		<span id="name"><a style="text-decoration:none; color:#fff;" href="#" onclick="exit()">当前用户：Bigblack(省级)</a></span>
 	</div>
+	
+	<a style="text-decoration:none; color:#fff;" href="#"><div id="exit">退出登录</div></a>
+	
+	<script type="text/javascript">
+		function exit(){
+			$("#exit").slideToggle();
+		}
+	</script>
 	
 	<div id="menu">
 		
@@ -67,6 +75,7 @@
 	</div>
 	
 	<script type="text/javascript">
+		
 		function change(a){
 			if(a==0){
 				$("#u0").slideToggle();
