@@ -65,6 +65,14 @@
     width:170px;
     float:left;
 }
+#mainbody {
+	position:absolute;
+	left:170px;
+	right:0px;
+	top:54px;
+	bottom:0px;
+	float:left;
+}
 
 #menu_container{
 	width:170px;
