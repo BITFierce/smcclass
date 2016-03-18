@@ -1,69 +1,164 @@
 <html>
 <body>
 
-<table border="0">
+<head>
+<title>山东省人力资源市场数据采集系统</title>
+<style type="text/css">
+#information {
+	background-color:#f6f6f6;
+	width:100%;
+}
+h2 {
+	color:#484848;
+}
+</style>
+</head>
+
+<script>
+function changePage()
+{
+	window.location.href="cover.html";
+}
+</script>
+
+<h2>完善企业信息:</h2>
+
+<table id="information" border="0" align="center">
 <tr>
- <td>*所属地区：</td>
- <td><input type="text" name="Local"/></td>
-</tr>
-<tr>
- <td>*组织机构代码：</td>
- <td><input type="text" name="CompanyCode"/></td>
-</tr>
-<tr>
- <td>*企业名称：</td>
- <td><input type="text" name="CompanyName"/></td>
-</tr>
-<tr>
- <td>*企业性质：</td>
  <td>
-  <form>
+ <form name="LocalInput" action="" method="post">
+ *所属地区：
+ <br />
+ <input type="text" name="Local"/>
+ </form>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ <form name="CompanyCodeInput" action="" method="post">
+ *组织机构代码：
+ <br />
+ <input type="text" name="CompanyCode"/>
+ </form>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ <form name="CompanyNameInput" action="" method="post">
+ *企业名称：
+ <br />
+ <input type="text" name="CompanyName"/>
+ </form>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ <form name="CompanyNatureInput" action="" method="post">
+ *企业性质：
+ <br />
    <select name="CompanyNature" style="width:146px;">
    <option value="一级">一级</option>
    <option value="二级">二级</option>
    </select>
-  </form>
+ </form>
  </td>
 </tr>
+
 <tr>
- <td>*所属行业：</td>
  <td>
-  <form>
+ <form name="IndustryInvolvedInput" action="" method="post">
+ *所属行业：
+ <br />
    <select name="IndustryInvolved" style="width:146px;">
    <option value="一级">一级</option>
    <option value="二级">二级</option>
    </select>
-  </form>
+ </form>
  </td>
 </tr>
+
 <tr>
- <td>*主要经营业务：</td>
- <td><input type="text" name="MainManage"/></td>
+ <td>
+ <form name="MainManageInput" action="" method="post">
+ *主要经营业务：
+ <br />
+ <input type="text" name="MainManage"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>*联系人：</td>
- <td><input type="text" name="LinkMan"/></td>
+ <td>
+ <form name="LinkManInput" action="" method="post">
+ *联系人：
+ <br />
+ <input type="text" name="LinkMan"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>*联系地址：</td>
- <td><input type="text" name="LinkAddress"/></td>
+ <td>
+ <form name="LinkAddressInput" action="" method="post">
+ *联系地址：
+ <br />
+ <input type="text" name="LinkAddress"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>*邮政编码(只可填6位数字)：</td>
- <td><input type="text" name="PostCode"/></td>
+ <td>
+ <form name="PostCodeInput" action="" method="post">
+ *邮政编码（6位）：
+ <br />
+ <input type="text" name="PostCode"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>*联系电话(区号+电话号码或手机号码)：</td>
- <td><input type="text" name="Telephone"/></td>
+ <td>
+ <form name="PhoneNumberInput" action="" method="post">
+ *联系电话：
+ <br />
+ <input type="text" name="PhoneNumber"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>*传真(区号+电话号码)：</td>
- <td><input type="text" name="Fax"/></td>
+ <td>
+ <form name="FaxInput" action="" method="post">
+ *传真：
+ <br />
+ <input type="text" name="Fax"/>
+ </form>
+ </td>
 </tr>
+
 <tr>
- <td>EMAIL(xxx@xxx.xxx)：</td>
- <td><input type="text" name="Email"/></td>
+ <td>
+ <form name="EmailInput" action="" method="post">
+ EMAIL(xxx@xxx.xxx)：
+ <br />
+ <input type="text" name="Email"/>
+ </form>
+ </td>
 </tr>
+
+<tr>
+ <td>
+ <form name="sure" action="" method="post">
+ <input type="submit" value="确认"/>
+ <input type="button" value="返回" onclick="changePage()"/>
+ </form>
+ </td>
+</tr>
+
 </table>
 
 </body>
