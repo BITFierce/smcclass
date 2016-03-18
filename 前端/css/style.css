@@ -1,3 +1,6 @@
+*{
+    margin:0;
+}
 #container {
     width: 100%;
 }
@@ -43,7 +46,7 @@
     background-color: #101b2a;
     font-size: 16px;
     height: 100%;
-    width: 15%;
+    width: 170px;
     float: left;
     padding: 0px;
     margin: 0px;
@@ -51,7 +54,7 @@
 #mainbody {
     background-color: #ffffff;
     height: 100%;
-    width: 85%;
+    width: ;
     float: left;
 }
 #footer {
@@ -61,14 +64,14 @@
     text-align: center;
 }
 #menu ul {
-    width: 100%;
+    width: 170px;
     margin: 0;
     list-style-type: none;
     padding: 0px;
     background-color: #101b2a;
 }
 #menu ul li {
-    width: 100%;
+    width: 170px;
     background-color: #000000;
 	font-weight: bold;
 }
@@ -91,7 +94,7 @@
     list-style-type: none
 }
 #menu ul li ul li {
-    width: 100%;
+    width: 170px;
 }
 #menu ul li ul li a {
     display: block;
