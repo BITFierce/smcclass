@@ -29,7 +29,7 @@ function changePage()
 
 <h2>调查期：3月份至4月份</h2>
 
-<form id="demand" name="Query" action="" method="get">
+<form id="demand" name="Query" action="" method="post">
 <br />
 查询关键字:
 <input type="text" name="InputQuery" class='I'/>
@@ -39,7 +39,7 @@ function changePage()
 <table id="information" border="0" align="center">
 <tr>
  <td>
- <form name="FillingCount" action="" method="get">
+ <form name="FillingCount" action="" method="post">
  *建档期就业人数：
  <br />
  <input type="text" name="Filling"/>
@@ -49,7 +49,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="SurveyingCount" action="" method="get">
+ <form name="SurveyingCount" action="" method="post">
  *调查期就业人数：
  <br />
  <input type="text" name="Survey"/>
@@ -59,7 +59,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="OtherReason" action="" method="get">
+ <form name="OtherReason" action="" method="post">
  *其他原因：
  <br />
  <input type="text" name="Other"/>
@@ -69,7 +69,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="ReduceType" action="" method="get">
+ <form name="ReduceType" action="" method="post">
  就业人数减少类型：
  <br />
  <input type="text" name="Reduce"/>
@@ -79,7 +79,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="MainReason" action="" method="get">
+ <form name="MainReason" action="" method="post">
  主要原因：
  <br />
  <input type="text" name="Main"/>
@@ -89,7 +89,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="MainReasonInterpretion" action="" method="get">
+ <form name="MainReasonInterpretion" action="" method="post">
  主要原因说明：
  <br />
  <input type="text" name="MainInterpretion"/>
@@ -99,7 +99,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="SecondaryReason" action="" method="get">
+ <form name="SecondaryReason" action="" method="post">
  次要原因：
  <br />
  <input type="text" name="Secondary"/>
@@ -109,7 +109,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="SecondaryReasonInterpretion" action="" method="get">
+ <form name="SecondaryReasonInterpretion" action="" method="post">
  次要原因说明：
  <br />
  <input type="text" name="SecondaryInterpretion"/>
@@ -119,7 +119,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="ThirdReason" action="" method="get">
+ <form name="ThirdReason" action="" method="post">
  第三原因：
  <br />
  <input type="text" name="Third"/>
@@ -129,7 +129,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="ThridReasonInterpretion" action="" method="get">
+ <form name="ThridReasonInterpretion" action="" method="post">
  第三原因说明：
  <br />
  <input type="text" name="ThridInterpretion"/>
@@ -139,7 +139,7 @@ function changePage()
 
 <tr>
  <td>
- <form name="sure" action="" method="get">
+ <form name="sure" action="" method="post">
  <input type="submit" value="提交"/>
  <input type="button" value="返回" onclick="changePage()"/>
  </td>
