@@ -1,0 +1,105 @@
+﻿*{
+	margin:0;
+}
+
+#login{
+	height:450px;
+	width:350px;
+	margin:150px auto 0;
+}
+
+#login-nav{
+	margin-top:10px;
+	margin-bottom:60px;
+}
+
+#login-nav ul{
+	margin:0;
+	padding:0;
+}
+
+.li{
+	width:100px;
+	margin:0 35px;
+	line-height:20px;
+	list-style:none;
+	float:left;
+	text-align:center;
+}
+
+.li a{
+	float:left;
+	font-family:微软雅黑, heitisc;
+	text-decoration:none;
+	padding-bottom:4px;
+	color:#494848
+}
+
+
+
+#login-container{
+	margin:0 10px;
+	float:left;
+}
+
+table, tr, th, td{
+	border: solid 0 #fff;
+}
+
+#login-container table{
+	width:300px;
+	height:250px;
+	margin-top:30px;
+}
+
+#login-container th{
+	height:50px;
+	color:#ff0000;
+}
+
+#login-container td{
+	height:50px;
+	font-size:14px;
+	text-align:left;
+	vertical-align:up;
+	color:#666666;
+}
+
+#login-container th input{
+	width:310px;
+	height:35px;
+	font-size:18px;
+}
+
+th input:focus{
+	border:solid 2px #dd433e;
+}
+
+#login-container td input{
+	width:310px;
+	height:45px;
+	font-size:20px;
+	font-family:微软雅黑 heitisc;
+}
+
+#button-login{
+	height:50px;
+	border:solid 1px #dd433e;
+	border-radius:5px;
+	color:#fff;
+	background-color:#dd433e;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
