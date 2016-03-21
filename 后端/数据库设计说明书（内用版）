@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+山东省人力资源市场数据采集系统
+数据库设计说明书
+
+
+
+
+
+
+
+
+文档信息
+文档名称	“山东省人力资源市场数据采集系统”
+数据库设计说明书
+
+描述	该文档描述“山东省人力资源市场数据采集系统”的数据库设计。所有设计人员、开发人员、测试人员以及其他团队成员都应该一概文档作为产品的功能定义，并衍生出其他文档
+负责人	吴志达
+状态	1.0版
+
+审核结果
+审核人	审核时间	意见	签名档	备注
+				
+				
+				
+				
+				
+
+
+
+
+目录
+1  引言	3
+1.1 编写目的	3
+1.2 背景	3
+1.3 定义	3
+1.4 参考资料	3
+2 数据库物理模型	3
+2.1 整体设计	3
+2.2 表结构设计	4
+
+
+1  引言
+1.1 编写目的
+1.2 背景
+1.3 定义
+定义关键词如下： 
+1.	HTTP：Hyper Text Transfer Protocol (超文本传输协议）
+2. HTML：Hyper Text Markup Language (超文本标记语言) 
+3. Web Browser：万维网浏览器 
+4. DateBase：数据库 
+5. JDBC：开放数据库连接 
+6. IPO：Input & Process & Output(输入、处理、输出) 
+7. B/S：服务器/浏览器模式 
+8. XML：扩展标记语言。 
+9. SQL：结构化查询语言。 
+10. P2P：Peer-to-Peer(对等联网) 
+11. Ajax：Asynchronous JavaScript + XML（异步的XML和JavaScript）
+
+1.4 参考资料
+ 2 数据库物理模型
+2.1 整体设计
+设计说明：
+本系统由
+
+
+2.2 表结构设计
+			说明		
+U_name	Varchar		账号		Pk
+U_password	Varchar		密码		
+U_type	Varchar		类型		
+ 2.2.1 user表
+ 2.2.2 企业表(company)
+			说明	Null	
+C_name			企业名称		
+C_username			所对应账号		Fk_comuser(username)
+C_number			组织机构代码		Pk
+C_addr			所属地区		
+C_xz			性质		
+C_sshy			所属行业		
+C_zyjyyw			主要经营业务		
+C_connectpeople			联系人		
+C_lianxidizhi			联系地址		
+C_yzbm	Varchar	6	邮政编码		
+C_phonenum			电话		
+C_fex			传真		
+C_mail			邮箱	True	
+注：C_xz:存储时格式为“A_B”(满足两级下拉)；c_lianxidizhi，c_sshy同。
+电话，传真，email的检验放在前端
+
+2.2.3 数据采集表（data）
+				Null	
+D_number			组织机构代码		Pk,fk_company(number)
+D_jdqjyrs			建档期就业人数		
+D_dcqjyrs			调查期就业人数		
+D_qtyy			其他原因		
+D_jyrsjslx			就业人数减少类型	True	
+D_zyyy			主要原因	True	
+D_zyyysm			主要原因说明	True	
+D_cyyy			次要原因	True	
+D_cyyysm			次要原因说明	True	
+D_dsyy			第三原因	True	
+D_dsyysm			第三原因说明	True	
+D_cjsj			采集时间		Pk
+2.2.4 通知表（info）
+					
+i_author			发送者		Pk，fk_ingovern(dh)
+I_time			时间		Pk
+I_title			发送标题		
+I_text			内容		
+注：i_author的fk为省用户的主键，这里暂时还未涉及
+
+2.2.5 省表（government）
+					
+G_dh			代号		Pk
+G_name			单位名称		
+G_username			账户		Fk_goveruser（username）
+
+
+
