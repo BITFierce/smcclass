@@ -1,39 +1,46 @@
-<?php 
+ï»¿<?php 
 session_start(); 
 ?>
 <html>
 <body>
 	<?php
 		if($_POST["PID"]==""){
-			echo "ÇëÊäÈëÓÃ»§Ãû";
+			//è¿”å›žç™»é™†é¡µé¢
+				header("Location: /login.php");
+				$_SESSION['errotype']="no-user";
 		}
 		else if($_POST["psw"]==""){
-			echo "ÇëÊäÈëÃÜÂë";
+			//è¿”å›žç™»é™†é¡µé¢
+				header("Location: /login.php");
+				$_SESSION['errotype']="no-psw";
 		}
 		else{
-			$connect=mysql_connect("localhost:3306","root","root") or die("²»ÄÜÁ¬½ÓÊý¾Ý¿â");
-			mysql_select_db("test",$connect) or die("Ñ¡ÔñÊý¾Ý¿â´íÎó");
-			$sql="select * from user where username = '".$_POST["PID"]."' and passwoed = '".$_POST["psw"]."';";
+			$connect=mysql_connect("localhost:3306","root","root") or die("ä¸èƒ½è¿žæŽ¥æ•°æ®åº“");
+			mysql_select_db("hrmdas",$connect) or die("é€‰æ‹©æ•°æ®åº“é”™è¯¯");
+			$sql="select * from user where UserName = '".$_POST["PID"]."' and UserPassword = '".$_POST["psw"]."' and UserType = '".$_POST["usertype"]."';";
 			$result = mysql_query($sql,$connect);
 			print_r($result);
 			$news=mysql_fetch_assoc($result);
 			mysql_free_result($result);
+			//echo $news['UserName'].$news['UserPassword'].$news['UserType'];
 			//mysql_close($connect);
-			if($news['username']==$_POST['PID']&&$news['passwoed']==$_POST['psw']){
-				//ÉèÖÃÓÃ»§Ãûµ½sessionÀï
+			
+			if($news['UserName']==$_POST['PID']&&$news['UserPassword']==$_POST['psw']&&$news['UserType']==$_POST['usertype']){
+				//è®¾ç½®ç”¨æˆ·ååˆ°sessioné‡Œ
 				$_SESSION['username']=$_POST['PID'];
 				$_SESSION['usertype']=$_POST['usertype'];
 				$_SESSION['errotype']='none';	
-				//ÖØ¶¨Ïòä¯ÀÀÆ÷ 
+				//é‡å®šå‘æµè§ˆå™¨ 
 				header("Location: /province.php"); 
-				//È·±£ÖØ¶¨Ïòºó£¬ºóÐø´úÂë²»»á±»Ö´ÐÐ 
+				//ç¡®ä¿é‡å®šå‘åŽï¼ŒåŽç»­ä»£ç ä¸ä¼šè¢«æ‰§è¡Œ 
 				exit;
 			}
 			else{
-				//·µ»ØµÇÂ½Ò³Ãæ
+				//è¿”å›žç™»é™†é¡µé¢
 				header("Location: /login.php");
 				$_SESSION['errotype']="user-psw";
 			}
+			
 		}
 	?>
 </body>

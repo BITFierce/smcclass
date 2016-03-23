@@ -1,0 +1,133 @@
+﻿<html>
+<body>
+
+<head>
+<title>山东省人力资源市场数据采集系统</title>
+<style type="text/css">
+#information {
+	background-color:#f6f6f6;
+	width:100%;
+}
+h2 {
+	color:#484848;
+}
+</style>
+</head>
+
+<h2>完善企业信息:</h2>
+
+<table id="information" border="0" align="center">
+<form name="LocalInput" action="" method="post">
+<tr>
+ <td>
+ *所属地区：
+ <br />
+ <input type="text" name="Local"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *组织机构代码：
+ <br />
+ <input type="text" name="CompanyCode"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *企业名称：
+ <br />
+ <input type="text" name="CompanyName"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *企业性质：
+ <br />
+   <select name="CompanyNature" style="width:146px;">
+   <option value="一级">一级</option>
+   <option value="二级">二级</option>
+   </select>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *所属行业：
+ <br />
+   <select name="IndustryInvolved" style="width:146px;">
+   <option value="一级">一级</option>
+   <option value="二级">二级</option>
+   </select>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *主要经营业务：
+ <br />
+ <input type="text" name="MainManage"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *联系人：
+ <br />
+ <input type="text" name="LinkMan"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *联系地址：
+ <br />
+ <input type="text" name="LinkAddress"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *邮政编码（6位）：
+ <br />
+ <input type="text" name="PostCode"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *联系电话：
+ <br />
+ <input type="text" name="PhoneNumber"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ *传真：
+ <br />
+ <input type="text" name="Fax"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ EMAIL(xxx@xxx.xxx)：
+ <br />
+ <input type="text" name="Email"/>
+ </td>
+</tr>
+
+<tr>
+ <td>
+ <input type="submit" value="确认"/>
+ <input type="button" value="返回" onclick="changePage()"/>
+ </td>
+</tr>
+ </form>
+</table>
+
+</body>
+</html>
