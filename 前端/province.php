@@ -44,7 +44,7 @@ session_start();
 		?></a></span>
 	</div>
 	
-	<a style="text-decoration:none; color:#fff;" href="#"><div id="exit">退出登录</div></a>
+	<a style="text-decoration:none; color:#fff;" href="/login.php"><div id="exit">退出登录</div></a>
 	
 	<script type="text/javascript">
 		function exit(){
@@ -59,7 +59,16 @@ session_start();
 				<li id="l0">
 					<div class="link" onclick="change(0)"><i class="fa fa-university"></i>企业管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u0">
-					<li><a href="CompanyReference.html" target="inform">企业备案查询</a></li>
+					<?php
+						//根据用户类型显示功能
+						if(isset($_SESSION['usertype']))
+						{				
+						    if($_SESSION['usertype']=='2')
+								echo "<li><a href='detail.php' target='inform'>完善企业信息</a></li>";
+							else
+								echo "<li><a href='CompanyReference.php' target='inform'>企业备案查询</a></li>";
+						}						
+					?>					
 					</ul>
 				</li>
 				<li id="l1">

@@ -29,7 +29,7 @@ CREATE TABLE `company` (
   `CompanyBusiness` varchar(20) DEFAULT NULL,
   `CompanyContact` varchar(20) NOT NULL,
   `CompanyContactAddr` varchar(20) NOT NULL,
-  `CompanyPostcode` int(6) NOT NULL,
+  `CompanyPostcode` varchar(6) NOT NULL,
   `CompanyPhone` varchar(20) NOT NULL,
   `CompanyFax` varchar(20) NOT NULL,
   `CompanyMail` varchar(20) NOT NULL,

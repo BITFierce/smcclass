@@ -32,6 +32,10 @@
 			<?php
 			if(isset($_SESSION['errotype']))
 			{
+					if($_SESSION['errotype']=='no-user')
+						echo "<tr><td>请输入用户名</td></tr>";
+					if($_SESSION['errotype']=='no-psw')
+						echo "<tr><td>请输入密码</td></tr>";
 					if($_SESSION['errotype']=='user-psw')
 						echo "<tr><td>用户名密码错误</td></tr>";
 					if($_SESSION['errotype']=='db-connect')
