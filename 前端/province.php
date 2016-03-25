@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php
-session_start();
-?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<?php session_start(); ?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,24 +26,25 @@ session_start();
 		<div id="logo"></div>
 		<span id="title">山东省人力资源市场数据采集系统</span>
 		<span id="name"><a style="text-decoration:none; color:#fff;" href="#" onclick="exit()">当前用户：
-		<?php 
-		if(isset($_SESSION['username']))
-		{
-			echo $_SESSION['username'];
-			if(isset($_SESSION['usertype']))
+		<?php
+			if(isset($_SESSION['userName']))
 			{
-					if($_SESSION['usertype']=='1')
+				echo $_SESSION['userName'];
+				if(isset($_SESSION['userType']))
+				{
+					if($_SESSION['userType']=="1")
 						echo "（省级）";
 					else
 						echo "（企业）";
+				}
 			}
-		}
-		else
-			echo "<a href='login.php'>登陆</a>";
-		?></a></span>
+			else
+				echo "<a href='login.php'>登陆</a>";
+		?>
+		</a></span>
 	</div>
 	
-	<a style="text-decoration:none; color:#fff;" href="/login.php"><div id="exit">退出登录</div></a>
+	<a style="text-decoration:none; color:#fff;" href="/test/login.php"><div id="exit">退出登录</div></a>
 	
 	<script type="text/javascript">
 		function exit(){
@@ -64,9 +64,9 @@ session_start();
 						if(isset($_SESSION['usertype']))
 						{				
 						    if($_SESSION['usertype']=='2')
-								echo "<li><a href='detail.php' target='inform'>完善企业信息</a></li>";
+								echo "<li><a href='detail.html' target='inform'>完善企业信息</a></li>";
 							else
-								echo "<li><a href='CompanyReference.php' target='inform'>企业备案查询</a></li>";
+								echo "<li><a href='CompanyReference.html' target='inform'>企业备案查询</a></li>";
 						}						
 					?>					
 					</ul>
