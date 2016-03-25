@@ -1,7 +1,11 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>动态增删和修改表格</title>
+<style type="text/css">
+h2 {
+	color:#484848;
+}
+</style>
 <script type="text/javascript">
 function add(){
 var table1=document.getElementById("mytable").insertRow(1);
@@ -33,11 +37,11 @@ var rowss=ch.parentNode.parentNode.rowIndex;
 var cellss=table3[rowss].cells[1];
 var oldR=cellss.innerHTML;
 cellss.innerHTML="<input type='text' id='id1' value='' align='center'/>";
-document.getElementById("id1").value=oldR;
+document.getElementById("id1").value="";
 var cellss2=table3[rowss].cells[0];
 var oldR2=cellss2.innerHTML;
 cellss2.innerHTML="<input type='text' id='id2' value='' align='center'/>";
-document.getElementById("id2").value=oldR2;
+document.getElementById("id2").value="";
 }
 </script>
 
@@ -49,7 +53,8 @@ document.getElementById("id2").value=oldR2;
 
 </head>
 <body>
-<table width="500" id="mytable" border="1" cellspacing="0" id="time">
+<h2>上报时限管理：</h2>
+<table width="100%" id="mytable" border="1" cellpadding="10" id="time" style="table-layout:fixed">
 	<tr>
 		<td width="100px">调查期</td>
 		<td width="100px">修改人</td>
