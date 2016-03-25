@@ -11,11 +11,76 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/province.css" media="screen" type="text/css" />
 	<script src="js/loadFun.js" type="text/javascript"></script>
-	<script src="js/Show.js" type="text/javascript"></script>
+	<script src="js/Show.js"></script>
 	<script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
 	<script>
+		function exit(){
+			$("#exit").slideToggle();
+		}
 		function resize(){
 			$("#mainbody").width(window.innerWidth - $("#menu").width() - 22);
+		}
+		function change(a){
+			if(a==0){
+				$("#u0").slideToggle();
+				$('#l0').toggleClass('open');	
+				$("#u1").slideUp();
+				$('#l1').removeClass('open');
+				$("#u2").slideUp();
+				$('#l2').removeClass('open');
+				$("#u3").slideUp();
+				$('#l3').removeClass('open');
+				$("#u4").slideUp();
+				$('#l4').removeClass('open');
+			}
+			if(a==1){
+				$("#u1").slideToggle();
+				$('#l1').toggleClass('open');
+				$("#u0").slideUp();
+				$('#l0').removeClass('open');
+				$("#u2").slideUp();
+				$('#l2').removeClass('open');
+				$("#u3").slideUp();
+				$('#l3').removeClass('open');
+				$("#u4").slideUp();
+				$('#l4').removeClass('open');
+			}
+			if(a==2){
+				$("#u2").slideToggle();
+				$('#l2').toggleClass('open');
+				$("#u1").slideUp();
+				$('#l1').removeClass('open');
+				$("#u0").slideUp();
+				$('#l0').removeClass('open');
+				$("#u3").slideUp();
+				$('#l3').removeClass('open');
+				$("#u4").slideUp();
+				$('#l4').removeClass('open');
+			}
+			if(a==3){
+				$("#u3").slideToggle();
+				$('#l3').toggleClass('open');
+				$("#u1").slideUp();
+				$('#l1').removeClass('open');
+				$("#u2").slideUp();
+				$('#l2').removeClass('open');
+				$("#u0").slideUp();
+				$('#l0').removeClass('open');
+				$("#u4").slideUp();
+				$('#l4').removeClass('open');
+			}
+			if(a==4){
+				$("#u4").slideToggle();
+				$('#l4').toggleClass('open');
+				$("#u1").slideUp();
+				$('#l1').removeClass('open');
+				$("#u2").slideUp();
+				$('#l2').removeClass('open');
+				$("#u3").slideUp();
+				$('#l3').removeClass('open');
+				$("#u0").slideUp();
+				$('#l0').removeClass('open');
+			}
 		}
 	</script>
 </head>
@@ -28,16 +93,7 @@
 		<span id="name"><a style="text-decoration:none; color:#fff;" href="#" onclick="exit()">当前用户：
 		<?php
 			if(isset($_SESSION['userName']))
-			{
-				echo $_SESSION['userName'];
-				if(isset($_SESSION['userType']))
-				{
-					if($_SESSION['userType']=="1")
-						echo "（省级）";
-					else
-						echo "（企业）";
-				}
-			}
+				echo $_SESSION['userName']."（省级）";
 			else
 				echo "<a href='login.php'>登陆</a>";
 		?>
@@ -46,12 +102,6 @@
 	
 	<a style="text-decoration:none; color:#fff;" href="/test/login.php"><div id="exit">退出登录</div></a>
 	
-	<script type="text/javascript">
-		function exit(){
-			$("#exit").slideToggle();
-		}
-	</script>
-	
 	<div id="menu">
 		
 		<div id="menu_container">
@@ -59,16 +109,7 @@
 				<li id="l0">
 					<div class="link" onclick="change(0)"><i class="fa fa-university"></i>企业管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u0">
-					<?php
-						//根据用户类型显示功能
-						if(isset($_SESSION['usertype']))
-						{				
-						    if($_SESSION['usertype']=='2')
-								echo "<li><a href='detail.html' target='inform'>完善企业信息</a></li>";
-							else
-								echo "<li><a href='CompanyReference.html' target='inform'>企业备案查询</a></li>";
-						}						
-					?>					
+					<li><a href='CompanyReference.html' target='inform'>企业备案查询</a></li>
 					</ul>
 				</li>
 				<li id="l1">
@@ -106,7 +147,7 @@
 		</div>
 		
 	</div>
-	
+
 	<div id="mainbody">
 		<iframe id="main" src="cover.html" width="100%" height="100%" frameborder="0" name="inform" align="right"></iframe>
 	</div>

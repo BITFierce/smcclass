@@ -22,7 +22,18 @@
 			$_SESSION["username"] = $_POST["PID"];
 			$_SESSION["usertype"] = $_POST["usertype"];
 			$_SESSION["errortype"] = "N";
-			echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=province.php\"></head></html>";
+			if ($_POST["usertype"] == "1")
+			{
+				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=province.php\"></head></html>";
+			}
+			else if ($_POST["usertype"] == "2")
+			{
+				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=company.php\"></head></html>";
+			}
+			else if ($_POST["usertype"] == "3")
+			{
+				echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=city.php\"></head></html>";
+			}
 		}
 		else
 		{
