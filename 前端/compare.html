@@ -63,7 +63,83 @@
 					data: [20, 21, 30, 15, 16, 18, 25, 22, 31, 32, 35, 36]
 				}]
 			});
+		} );
+	</script>
+	<script>
+	$(function () {
+			$("#hist").highcharts({
+				chart: {
+					type: "column"
+				},
+				title: {
+					text: "调查期企业岗位变动情况"
+				},
+				subtitle: {
+					text: "来自..."
+				},
+				xAxis: {
+					categories: [
+						"一月",
+						"二月",
+						"三月",
+						"四月",
+						"五月",
+						"六月",
+						"七月",
+						"八月",
+						"九月",
+						"十月",
+						"十一月",
+						"十二月"
+					]
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: "数量"
+					}
+				},
+				tooltip: {
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+					footerFormat: "</table>",
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: "地区",
+					data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+		
+				}, {
+					name: "企业性质",
+					data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+		
+				}, {
+					name: "行业",
+					data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+		
+				}]
+			});
 		});
+	</script>
+	<script>
+		function choose(sel){
+			if(sel.value=="1"){
+				document.getElementById("picture").style.display="block";
+				document.getElementById("hist").style.display="none";
+			}
+			else if(sel.value=="2"){
+				document.getElementById("picture").style.display="none";
+				document.getElementById("hist").style.display="block";
+			}
+		}
 	</script>
 </head>
 	
@@ -77,9 +153,18 @@
 		</div>
 		
 		<div class="title">
-			<div id="picture" style="min-width:700px;height:400px"></div>
+			<span style="width:80%;">调查期企业岗位变动情况</span>
+			<span>
+				<select id="chose" onchange="choose(this);">
+					<option value="1">折线图显示</option>
+					<option value="2">柱状图显示</option>
+				</select>
+			</span>
 		</div>
-	
+		
+		<div id="picture" style="width:100%;height:400px;display:block"></div>
+		<div id="hist" style="width:100%;height:400px;display:none"></div>
+		
 	</div>
 
 </body>
