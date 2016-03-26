@@ -1,46 +1,67 @@
-<html>
-	<head>
-		<style type="text/css">
-			h2 {
-				color:#484848;
-			}
-			.I {
-				background-color:#ffffff;
-			}
-			#demand {
-				background-color:#f6f6f6;
-				height:60;
-				font-size:18;
-			}
-		</style>
-	</head>
-	
-	<body>
-		<h2>���ύ�ĵ��������ݣ�</h2>
-		<form id="demand" name="Query" action="" method="post">
-			<br />
-			��ѯ�ؼ���:
-			<input type="text" name="InputQuery" class='I'/>
-			<input type="submit" value="��ѯ"/>
-		</form>
+﻿<html>
 
-		<table border="1" cellpadding="5" width="100%" style="table-layout:fixed">
-			<tr>
-				<td align="center">��������</td>
-				<td align="center">������</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="CheckEachSurvey.html" target="_blank">1�µ�2��������Դ�����</a></td>
-				<td align="center">1�·ݵ�2�·�</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="CheckEachSurvey.html" target="_blank">2�µ�3��������Դ�����</a></td>
-				<td align="center">2�·ݵ�3�·�</td>
-			</tr>
-			<tr>
-				<td align="center">&nbsp;</td>
-				<td align="center">&nbsp;</td>
-			</tr>
-		</table>
-	</body>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="css/CompanyReference.css" media="screen" type="text/css" />
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<div class="head">
+			<div></div>
+			<span>已提交的调查期表格</span>
+		</div>
+		
+		<div class="query">
+			<span>查询</span>
+			<input type="text" id="query" name="query"/>
+		</div>
+		
+		<div class="title">
+			<span style="width:50px;">序号</span>
+			<span style="width:400px;">表格名称</span>
+			<span >调查期</span>
+			<span >上报时间</span>
+		</div>
+		
+		<div class="content">
+			<div class="cstyle">
+				<span style="width:50px;">1</span>
+				<span style="width:400px;">3月调查期表格</span>
+				<span>3月份</span>
+				<span>2016.3.26</span>
+			</div>
+			<div class="cstyle">
+				<span style="width:50px;">2</span>
+				<span style="width:400px;">4月调查期表格</span>
+				<span>四月份</span>
+				<span>2016.4.10</span>
+			</div>
+			<div class="cstyle">
+				<span style="width:50px;">3</span>
+				<span style="width:400px;">5月份调查期表格</span>
+				<span>五月份</span>
+				<span>2016.5.12</span>
+			</div>
+		</div>
+		
+		<div id="c-foot">
+			
+			<a href="#">上一页</a>
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">下一页</a>
+		
+		</div>
+
+</body>
 </html>
