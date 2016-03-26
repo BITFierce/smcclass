@@ -1,78 +1,81 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-h2 {
-	color:#484848;
-}
-</style>
-<script type="text/javascript">
-function add(){
-var table1=document.getElementById("mytable").insertRow(1);
-var addRow1=table1.insertCell(0);
-addRow1.innerHTML="<input type='text' value='输入用户名' style='border-style:none'/>";
-var addRow2=table1.insertCell(1);
-addRow2.innerHTML="<input type='text' value='输入用户类型' style='border-style:none'/>";
-var addRow3=table1.insertCell(2);
-addRow3.innerHTML="<input type='text' value='输入用户密码' style='border-style:none'/>"
-var addRow1=table1.insertCell(3);
-addRow1.innerHTML="<input type='button' value='删除' onclick='del(this)'/> <input type='button' value='确定' onclick='sure(this)'/> <input type='button' value='修改' onclick='change(this)'/>";
-}
-
-function del(tt){
-var table2=document.getElementById("mytable");
-table2.deleteRow(tt.parentNode.parentNode.rowIndex)
-}
-
-function sure(su){
-var table4=document.getElementById("mytable").rows;
-var rowss=su.parentNode.parentNode.rowIndex;
-
-var cellss=table4[rowss].cells[1];
-cellss.innerHTML=document.getElementById("id1").value;
-
-var cellss2=table4[rowss].cells[0];
-cellss2.innerHTML=document.getElementById("id2").value;
-
-var cellss3=table4[rowss].cells[2];
-cellss3.innerHTML=document.getElementById("id3").value;
-}
-
-function change(ch){
-var table3=document.getElementById("mytable").rows;
-var rowss=ch.parentNode.parentNode.rowIndex;
-
-var cellss=table3[rowss].cells[1];
-var oldR=cellss.innerHTML;
-cellss.innerHTML="<input type='text' id='id1' value='' align='center'/>";
-document.getElementById("id1").value=oldR;
-
-var cellss2=table3[rowss].cells[0];
-var oldR2=cellss2.innerHTML;
-cellss2.innerHTML="<input type='text' id='id2' value='' align='center'/>";
-document.getElementById("id2").value=oldR2;
-
-var cellss3=table3[rowss].cells[2];
-var oldR3=cellss3.innerHTML;
-cellss3.innerHTML="<input type='text' id='id3' value='' align='center'/>"
-document.getElementById("id3").value=oldR3;
-}
-</script>
-
-</head>
-<body>
-<h2>用户信息管理：</h2>
-<table width="100%" id="mytable" border="1" cellpadding="10" id="time" style="table-layout:fixed">
-	<tr>
-		<td width="100px">用户名</td>
-		<td width="100px">用户类型</td>
-		<td width="100px">用户密码</td>
-		<td width="100px">操作</td>
-	</tr>
-	<tr><td>ZTL</td><td>省用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
-	<tr><td>XMZ</td><td>企业用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
-	<tr><td>TZJ</td><td>企业用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
-	<tr><td colspan="4" align="center"><input type="button" value="增加用户" / onclick="add()"></td></tr>
-</table>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			h2 {
+				color:#484848;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function add(){
+				var table1=document.getElementById("mytable").insertRow(1);
+				var addRow1=table1.insertCell(0);
+				addRow1.innerHTML='<input type="text" value="输入用户名" style="border-style:none"/>';
+				var addRow2=table1.insertCell(1);
+				addRow2.innerHTML='<input type="text" value="输入用户类型" style="border-style:none"/>';
+				var addRow3=table1.insertCell(2);
+				addRow3.innerHTML='<input type="text" value="输入用户密码" style="border-style:none"/>';
+				var addRow1=table1.insertCell(3);
+				addRow1.innerHTML='<input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/>';
+			}
+	
+			function del(tt){
+				var table2=document.getElementById("mytable");
+				table2.deleteRow(tt.parentNode.parentNode.rowIndex)
+			}
+	
+			function sure(su){
+				var table4=document.getElementById("mytable").rows;
+				var rowss=su.parentNode.parentNode.rowIndex;
+				
+				var cellss=table4[rowss].cells[1];
+				cellss.innerHTML=document.getElementById("id1").value;
+				
+				var cellss2=table4[rowss].cells[0];
+				cellss2.innerHTML=document.getElementById("id2").value;
+				
+				var cellss3=table4[rowss].cells[2];
+				cellss3.innerHTML=document.getElementById("id3").value;
+			}
+	
+			function change(ch){
+				var table3=document.getElementById("mytable").rows;
+				var rowss=ch.parentNode.parentNode.rowIndex;
+				
+				var cellss=table3[rowss].cells[1];
+				var oldR=cellss.innerHTML;
+				cellss.innerHTML='<input type="text" id="id1" value="" align="center"/>';
+				document.getElementById("id1").value="";
+				
+				var cellss2=table3[rowss].cells[0];
+				var oldR2=cellss2.innerHTML;
+				cellss2.innerHTML='<input type="text" id="id2" value="" align="center"/>';
+				document.getElementById("id2").value="";
+				
+				var cellss3=table3[rowss].cells[2];
+				var oldR3=cellss3.innerHTML;
+				cellss3.innerHTML='<input type="text" id="id3" value="" align="center"/>';
+				document.getElementById("id3").value="";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h2>用户信息管理：</h2>
+		<form name="input" action="" method="post">
+			<table width="100%" id="mytable" border="1" cellpadding="10" id="time" style="table-layout:fixed">
+				<tr>
+					<td>用户名</td>
+					<td>用户类型</td>
+					<td>用户密码</td>
+					<td>操作</td>
+				</tr>
+				<tr><td>ZTL</td><td>省用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+				<tr><td>XMZ</td><td>企业用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+				<tr><td>TZJ</td><td>企业用户</td><td>123456</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+				<tr><td colspan="4" align="center"><input type="button" value="增加用户" onclick="add()"></td></tr>
+			</table>
+		</form>
+	</body>
 </html>
