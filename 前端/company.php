@@ -11,47 +11,12 @@
 	<script src="js/Show.js" type="text/javascript"></script>
 	<script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
 	<script>
+	function exit(){
+			$("#exit").slideToggle();
+		}
 	function resize(){
 		$("#mainbody").width(window.innerWidth - $("#menu").width() - 22);
 	}
-	function change(a){
-			if(a==0){
-				$("#u0").slideToggle();
-				$('#l0').toggleClass('open');	
-				$("#u1").slideUp();
-				$('#l1').removeClass('open');
-				$("#u2").slideUp();
-				$('#l2').removeClass('open');
-				$("#u3").slideUp();
-				$('#l3').removeClass('open');
-				$("#u4").slideUp();
-				$('#l4').removeClass('open');
-			}
-			if(a==1){
-				$("#u1").slideToggle();
-				$('#l1').toggleClass('open');
-				$("#u0").slideUp();
-				$('#l0').removeClass('open');
-				$("#u2").slideUp();
-				$('#l2').removeClass('open');
-				$("#u3").slideUp();
-				$('#l3').removeClass('open');
-				$("#u4").slideUp();
-				$('#l4').removeClass('open');
-			}
-			if(a==2){
-				$("#u2").slideToggle();
-				$('#l2').toggleClass('open');
-				$("#u1").slideUp();
-				$('#l1').removeClass('open');
-				$("#u0").slideUp();
-				$('#l0').removeClass('open');
-				$("#u3").slideUp();
-				$('#l3').removeClass('open');
-				$("#u4").slideUp();
-				$('#l4').removeClass('open');
-			}
-		}
 	</script>
 </head>
 
@@ -71,13 +36,7 @@
 		</a></span>
 	</div>
 	
-	<a style="text-decoration:none; color:#fff;" href="#"><div id="exit">退出登录</div></a>
-	
-	<script type="text/javascript">
-		function exit(){
-			$("#exit").slideToggle();
-		}
-	</script>
+	<a style="text-decoration:none; color:#fff;" href="login.php"><div id="exit">退出登录</div></a>
 
 	<div id="menu">
 
