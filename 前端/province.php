@@ -55,7 +55,7 @@
 				<li id="l1">
 					<div class="link" onclick="change(1)"><i class="fa fa-table"></i>报表管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u1">
-					<li><a href="#">审核报表</a></li>
+					<li><a href="AuditReport.html" target="inform">审核报表</a></li>
 					<li><a href="#">数据汇总</a></li>
 					</ul>
 				</li>
@@ -70,15 +70,15 @@
 				<li id="l3">
 					<div class="link" onclick="change(3)"><i class="fa fa-bell-o"></i>通知管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u3">
-					<li><a href="#">查看通知</a></li>
-					<li><a href="#">发布通知</a></li>
+					<li><a href="NoticeDetail.html" target="inform">查看通知</a></li>
+					<li><a href="PublishNotice.html" target="inform">发布通知</a></li>
 					</ul>
 				</li>
 				<li id="l4">
 					<div class="link" onclick="change(4)"><i class="fa fa-cogs"></i>系统管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u4">
-					<li><a href="#">上报时限</a></li>
-					<li><a href="#">用户管理</a></li>
+					<li><a href="SubmitTime.html" target="inform">上报时限</a></li>
+					<li><a href="UserManage.html" target="inform">用户管理</a></li>
 					<li><a href="#">角色管理</a></li>
 					<li><a href="#">系统监控</a></li>
 					</ul>

@@ -51,7 +51,8 @@
 			<li id="l1">
 				<div class="link" onclick="change(1)"><i class="fa fa-table"></i>人力资源表格<i class="fa fa-chevron-down"></i></div>
 				<ul class="submenu" id="u1">
-					<li><a href="survey.php" target="inform">填写调查期表格</a></li>
+					<li><a href="Survey.html" target="inform">填写调查期表格</a></li>
+					<li><a href="CheckSurvey.html" target="inform">已提交的调查期信息</a></li>
 				</ul>
 			</li>
 			<li id="l2">
