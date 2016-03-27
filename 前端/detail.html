@@ -2,6 +2,9 @@
 	<head>
 		<title>山东省人力资源市场数据采集系统</title>
 		<link rel="stylesheet" href="css/Detail.css" media="screen" type="text/css" />
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 		<script>
 			function changePage(){
 				window.location.href="cover.html";
@@ -10,131 +13,81 @@
 	</head>
 
 	<body>
-		<div class="container">
-		<div class="head">
-			<div></div>
-			<span>完善企业信息</span>
+		<div id="container">
+			<div class="head">
+				<div></div>
+				<span>完善企业信息</span>
+			</div>
+			<form id="table" class="tform" name="table" action="" method="post">
+				<table>
+					<tr>
+						<td>*所属地区</td>
+						<td><input type="text" id="area" name="area" /></td>
+					</tr>
+					<tr>
+						<td>*组织机构</td>
+						<td><input type="text" id="organization" name="organization" /></td>
+					</tr>
+					<tr>
+						<td>*企业名称</td>
+						<td><input type="text" id="name" name="name" /></td>
+					</tr>
+					<tr>
+						<td>*企业性质</td>
+						<td>
+							<select id="nature1" name="nature1">
+								<option value="一级">一级</option>
+								<option value="二级">二级</option>
+							</select>
+							<select id="nature2" name="nature2">
+								<option value="一级">一级</option>
+								<option value="二级">二级</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>*所属行业</td>
+						<td>
+							<select id="industry1" name="industry1">
+								<option value="一级">一级</option>
+								<option value="二级">二级</option>
+							</select>
+							<select id="industry2" name="industry2">
+								<option value="一级">一级</option>
+								<option value="二级">二级</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>*主要经营业务</td>
+						<td><input type="text" id="work" name="work" /></td>
+					</tr>
+					<tr>
+						<td>*联系人</td>
+						<td><input type="text" id="linker" name="linker" /></td>
+					</tr>
+					<tr>
+						<td>*联系地址</td>
+						<td><input type="text" id="address" name="address" /></td>
+					</tr>
+					<tr>
+						<td>*邮政编码</td>
+						<td><input type="text" id="code" name="code" /></td>
+					</tr>
+					<tr>
+						<td>*Email</td>
+						<td><input type="text" id="email" name="email" /></td>
+					</tr>
+				</table>
+			</form>
+			
+			<div class="i-footer">
+				<input style="width:80px;" type="submit" id="done" name="done" value="完成"/>
+				<input style="width:80px;" type="submit" id="exit" name="exit" value="取消"/>
+			</div>
+			
 		</div>
-		<form name="LocalInput" action="" method="post">
-			<table id="information" border="0" align="center">
-				<tr>
-					<td>
-						*所属地区：
-						<br />
-						<input type="text" name="Local"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*组织机构代码：
-						<br />
-						<input type="text" name="CompanyCode"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*企业名称：
-						<br />
-						<input type="text" name="CompanyName"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*企业性质：
-						<br />
-						<select name="CompanyNature1" style="width:146px;">
-							<option value="一级">一级</option>
-							<option value="二级">二级</option>
-						</select>
-						<select name="CompanyNature2" style="width:146px;">
-							<option value="一级">一级</option>
-							<option value="二级">二级</option>
-						</select>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*所属行业：
-						<br />
-						<select name="IndustryInvolved1" style="width:146px;">
-							<option value="一级">一级</option>
-							<option value="二级">二级</option>
-						</select>
-						<select name="IndustryInvolved2" style="width:146px;">
-							<option value="一级">一级</option>
-							<option value="二级">二级</option>
-						</select>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*主要经营业务：
-						<br />
-						<input type="text" name="MainManage"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*联系人：
-						<br />
-						<input type="text" name="LinkMan"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*联系地址：
-						<br />
-						<input type="text" name="LinkAddress"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*邮政编码（6位）：
-						<br />
-						<input type="text" name="PostCode"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*联系电话：
-						<br />
-						<input type="text" name="PhoneNumber"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						*传真：
-						<br />
-						<input type="text" name="Fax"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						EMAIL(xxx@xxx.xxx)：
-						<br />
-						<input type="text" name="Email"/>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>
-						<input type="submit" value="确认"/>
-						<input type="button" value="返回" onclick="changePage()"/>
-					</td>
-				</tr>
-			</table>
-		</form>
-		</div>
+		
 	</body>
+	
 </html>
