@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `UserID` varchar(20) NOT NULL,
+  `UserID` varchar(20) NOT NULL auto_increment,
   `UserName` varchar(20) NOT NULL,
   `UserPassword` varchar(20) NOT NULL,
   `UserType` varchar(20) NOT NULL,
