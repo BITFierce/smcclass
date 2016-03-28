@@ -7,11 +7,11 @@
 			function add(){
 				var table1=document.getElementById("mytable").insertRow(1);
 				var addRow1=table1.insertCell(0);
-				addRow1.innerHTML='<input type="text" value="输入用户名" style="border-style:none"/>';
+				addRow1.innerHTML='<input id="id2" type="text" value="输入用户名" style="border-style:none"/>';
 				var addRow2=table1.insertCell(1);
-				addRow2.innerHTML='<input type="text" value="输入用户类型" style="border-style:none"/>';
+				addRow2.innerHTML='<input id="id1" type="text" value="输入用户类型" style="border-style:none"/>';
 				var addRow3=table1.insertCell(2);
-				addRow3.innerHTML='<input type="text" value="输入用户密码" style="border-style:none"/>';
+				addRow3.innerHTML='<input id="id3" type="text" value="输入用户密码" style="border-style:none"/>';
 				var addRow1=table1.insertCell(3);
 				addRow1.innerHTML='<input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/>';
 			}
