@@ -72,7 +72,7 @@
 					$_SESSION["errorType"]="N";
 				}
 			?>
-            <tr><td><input id="button-login" he y67  ytight="50px" type="submit" value="登录" onclick="return isInput();"></td></tr>
+            <tr><td><input id="button-login" height="50px" type="submit" value="登录" onclick="return isInput();"></td></tr>
         </table>
     </form>
 	
