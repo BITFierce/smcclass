@@ -2,6 +2,10 @@
 <html>
 <head>
 <title>山东省人力资源市场数据采集系统</title>
+		<link rel="stylesheet" href="css/Detail.css" media="screen" type="text/css" />
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="js/address.js"></script>
 <style type="text/css">
@@ -18,23 +22,11 @@ h2 {
 }
 </style>
 </head>
-<script type="text/javascript">
-	//TODO：有待更新
-	function isInputRight()
-	{
-		if (document.getElementById("PID").value == "" || document.getElementById("psw").value == "")
-		{
-			alert("用户名或密码不能为空！");
-			return false;
-		}
-		return true;
-	}
-</script>
 <body>
 
 <?php
 	$localErr = $CompanyCodeErr = $CompanyNameErr = $CompanyNatureErr = $IndustryInvolvedErr = $MainManageErr 
-	=$LinkManErr = $LinkAddressErr = $PhoneNumberErr = $PostCodeErr = $FaxErr = "";
+	=$LinkManErr = $LinkAddressErr = $PhoneNumberErr = $PostCodeErr = $FaxErr = $EmailErr = "";
 	$local = $CompanyCode = $CompanyName = $CompanyNature = $IndustryInvolved = $MainManage 
 	= $LinkMan = $LinkAddress = $PhoneNumber =$PostCode = $Fax =$Email ="";
 	//连接数据库
@@ -79,6 +71,14 @@ h2 {
 		} else 
 		{
 			$CompanyCode = $_POST["CompanyCode"];
+			if (!preg_match("/^.{1,9}$/",$CompanyCode))
+			{
+				$CompanyCodeErr = "<b class='error'> * 组织机构代码不能超过9位</b>";
+			}
+			if (!preg_match("/^[0-9a-zA-Z]*$/",$CompanyCode))
+			{
+				$CompanyCodeErr = "<b class='error'> * 组织机构代码只能包含字母或数字</b>";
+			}
 		}
 		if (empty($_POST["CompanyName"])) 
 		{
@@ -149,10 +149,15 @@ h2 {
 		} else 
 		{
 			$Email = $_POST["Email"];
+			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$Email)) 
+			{
+				$EmailErr = "<b class='error'> * 请输入有效的Emali</b>";
+			}
+			
 		}
 		//判断是否可以提交到数据库
-		if($local!=''&&$CompanyCode!=''&&$CompanyName!=''&&$CompanyNature!=''&&$IndustryInvolved!=''&&$MainManage!=''&&$LinkMan!=''
-		&&$LinkAddress!=''&&$PhoneNumber!=''&&$PostCode!=''&&$Fax!='')
+		if($localErr!=''&&$CompanyCodeErr!=''&&$CompanyNameErr!=''&&$CompanyNatureErr!=''&&$IndustryInvolvedErr!=''&&$MainManageErr!=''&&$LinkManErr!=''
+		&&$LinkAddressErr!=''&&$PhoneNumberErr!=''&&$PostCodeErr!=''&&$FaxErr!=''&&$EmailErr!='')
 		{
 			$sql_insert="INSERT INTO company (CompanyAddr, CompanyUsername, CompanyNumber, CompanyName ,CompanyProperty, CompanyIndustry, CompanyBusiness ,
 			CompanyContact, CompanyContactAddr, CompanyPhone ,CompanyPostcode, CompanyFax, CompanyMail) 
@@ -171,7 +176,7 @@ h2 {
 <h2>完善企业信息:</h2>
 
 <table id="information" border="0" align="center">
-<form name="LocalInput" onclick="return isInputRight();" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+<form name="LocalInput" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 <tr>
  <td>
  *所属地区：
@@ -325,6 +330,7 @@ addressInit('addrCity', 'addrCounty', 'addrArea');
  EMAIL(xxx@xxx.xxx)：
  <br />
  <input type="text" name="Email" value="<?php echo $Email?>"/>
+ <?php echo $EmailErr ?>
  </td>
 </tr>
 

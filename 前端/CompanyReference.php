@@ -34,36 +34,29 @@ h2 {
 <input type="text" name="InputQuery"  class='I'/>
 <input type="submit" value="查询"/>
 </form>
-
-
-	<?php
-		
-		echo "<table id='Company' border='1' cellpadding='20'>
-			 <tr>
-			 <th>企业名称</th>
-			 <th>组织机构代码</th>
-			 <th>所属地区</th>
-			 </tr>";
-		$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
-		//连接数据库
-		mysql_query("set names 'utf8'",$connect);
-		mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
-		$sql="select `CompanyName`, `CompanyNumber`, `CompanyAddr` from `company`";
-		$result = mysql_query($sql,$connect);
-		while($row=mysql_fetch_array($result))
-		{
-			echo "<tr>
-				<td><a href='CheckCompany.html' target='_blank'>".$row['CompanyName']."</a></td>
-				<td>".$row['CompanyNumber']."</td>
-				<td>".$row['CompanyAddr']."</td>
-				</tr>";
-		}
-		echo "</table>";
-		mysql_close($connect);
-	?>
-
-	
-</table>
-
+<?php
+	echo "<table id='Company' border='1' cellpadding='20'>
+		 <tr>
+		 <th>企业名称</th>
+		 <th>组织机构代码</th>
+		 <th>所属地区</th>
+		 </tr>";
+	$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
+	//连接数据库
+	mysql_query("set names 'utf8'",$connect);
+	mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
+	$sql="select `CompanyName`, `CompanyNumber`, `CompanyAddr` from `company`";
+	$result = mysql_query($sql,$connect);
+	while($row=mysql_fetch_array($result))
+	{
+		echo "<tr>
+			<td><a href='CheckCompany.html' target='_blank'>".$row['CompanyName']."</a></td>
+			<td>".$row['CompanyNumber']."</td>
+			<td>".$row['CompanyAddr']."</td>
+			</tr>";
+	}
+	echo "</table>";
+	mysql_close($connect);
+?>	
 </body>
 </html>

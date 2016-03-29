@@ -34,7 +34,7 @@ div[data-role="editor-toolbar"] {
 }
 
 .container{
-	width:100%;
+	width:97%;
 	margin:15px;
 	background-color:#fff;
 }
@@ -70,6 +70,7 @@ div[data-role="editor-toolbar"] {
 	float:left;
 	margin:15px 0 10px;
 	line-height:40px;
+	color:#666666;
 }
 
 .title span{

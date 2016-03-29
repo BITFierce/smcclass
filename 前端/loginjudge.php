@@ -1,13 +1,5 @@
 ﻿<?php
-	if (isset($_COOKIE["sesID"]))
-	{
-		session_id($_COOKIE["sesID"]);
-		session_start();
-	}
-	else {
-		session_start();
-		setcookie("sesID", session_id(), time() + 3600);
-	}
+	session_start();
 	$root = "root";//数据库用户
 	$password = "root";//数据库用户密码
 	$database = "hrmdas";//数据库名
@@ -24,11 +16,11 @@
 	{
 		if ($news["UserName"] == $_POST["PID"] && $news["UserPassword"] == $_POST["psw"] && $news["UserType"] == $_POST["usertype"])
 		{
-			$_SESSION["userName"] = $news["UserName"];
-			$_SESSION["userType"] = $news["UserType"];
+			$_SESSION["userName"] = $_POST["PID"];
+			$_SESSION["userType"] = $_POST["usertype"];
 			$_SESSION["errorType"] = "N";
-			$_SESSION["username"] = $news["UserName"];
-			$_SESSION["usertype"] = $news["UserType"];
+			$_SESSION["username"] = $_POST["PID"];
+			$_SESSION["usertype"] = $_POST["usertype"];
 			$_SESSION["errortype"] = "N";
 			if ($_POST["usertype"] == "1")
 			{
