@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `CompanyName` varchar(20) NOT NULL,
-  `CompanyNumber` varchar(20) NOT NULL,
+  `CompanyNumber` int NOT NULL,
   `CompanyUserID` varchar(20) NOT NULL,
   `CompanyAddr` varchar(20) NOT NULL,
   `CompanyProperty` varchar(5) NOT NULL,
