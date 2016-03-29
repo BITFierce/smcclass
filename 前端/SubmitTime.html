@@ -1,0 +1,63 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/TimeAndUser.css" media="screen" type="text/css" />
+		
+		<script type="text/javascript">
+			function add(){
+				var table1=document.getElementById("mytable").insertRow(1);
+				var addRow1=table1.insertCell(0);
+				addRow1.innerHTML='<input id="id2" type="text" value="输入调查期" style="border-style:none"/>';
+				var addRow2=table1.insertCell(1);
+				addRow2.innerHTML='<input id="id1" type="text" value="输入修改人" style="border-style:none"/>';
+				var addRow1=table1.insertCell(2);
+				addRow1.innerHTML='<input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/>';
+			}
+			
+			function del(tt){
+				var table2=document.getElementById("mytable");
+				table2.deleteRow(tt.parentNode.parentNode.rowIndex)
+			}
+			
+			function sure(su){
+				var table4=document.getElementById("mytable").rows;
+				var rowss=su.parentNode.parentNode.rowIndex;
+				var cellss=table4[rowss].cells[1];
+				cellss.innerHTML=document.getElementById("id1").value;
+				var cellss2=table4[rowss].cells[0];
+				cellss2.innerHTML=document.getElementById("id2").value;
+			}
+			
+			function change(ch){
+				var table3=document.getElementById("mytable").rows;
+				var rowss=ch.parentNode.parentNode.rowIndex;
+				var cellss=table3[rowss].cells[1];
+				var oldR=cellss.innerHTML;
+				cellss.innerHTML='<input type="text" id="id1" value="" align="center"/>';
+				document.getElementById("id1").value="";
+				var cellss2=table3[rowss].cells[0];
+				var oldR2=cellss2.innerHTML;
+				cellss2.innerHTML='<input type="text" id="id2" value="" align="center"/>';
+				document.getElementById("id2").value="";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="head">
+			<div></div>
+			<span>上报时限管理</span>
+		</div>
+		<table width="100%" id="mytable" border="1" cellpadding="10" id="time" style="table-layout:fixed">
+			<tr>
+				<td>调查期</td>
+				<td>修改人</td>
+				<td>操作</td>
+			</tr>
+			<tr><td>1月到2月</td><td>省用户</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+			<tr><td>2月到3月</td><td>省用户</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+			<tr><td>3月到4月</td><td>省用户</td><td><input type="button" value="删除" onclick="del(this)"/> <input type="button" value="确定" onclick="sure(this)"/> <input type="button" value="修改" onclick="change(this)"/></td></tr>
+			<tr><td colspan="3" align="center"><input type="button" value="增加订单" onclick="add()"></td></tr>
+		</table>
+	</body>
+</html>
