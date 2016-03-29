@@ -5,11 +5,7 @@
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-		<script>
-			function changePage(){
-				window.location.href="cover.html";
-			}
-		</script>
+		<script type="text/javascript" src="js/address.js"></script>
 	</head>
 
 	<body>
@@ -21,8 +17,16 @@
 			<form id="table" class="tform" name="table" action="" method="post">
 				<table>
 					<tr>
-						<td>*所属地区</td>
-						<td><input type="text" id="area" name="area" /></td>
+						<td>*所属地区:</td>
+						<td>
+							市：<select id="nature1"></select>
+							区/县/市：<select id="nature2"></select>
+							区域：<select id="nature3"></select>
+							
+							<script>
+								addressInit('nature1', 'nature2', 'nature3');
+							</script>
+						</td>
 					</tr>
 					<tr>
 						<td>*组织机构</td>
