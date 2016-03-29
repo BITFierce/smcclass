@@ -1,25 +1,25 @@
-   -- ´´½¨Ê¡¼¶ÓÃ»§£¬ÃÜÂëÎª sheng
+ï»¿   -- åˆ›å»ºçœçº§ç”¨æˆ·ï¼Œå¯†ç ä¸º sheng
 create user  sheng   IDENTIFIED by 'sheng' ;         
-   -- ÎªÊ¡¼¶ÓÃ»§¸³ÓèËùÓĞ±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ            
+   -- ä¸ºçœçº§ç”¨æˆ·èµ‹äºˆæ‰€æœ‰è¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™            
 grant select, insert, update, delete on `database`.* to sheng@`%` ; 
 
-   -- ´´½¨DBAÓÃ»§£¬ÃÜÂëÎªdba
+   -- åˆ›å»ºDBAç”¨æˆ·ï¼Œå¯†ç ä¸ºdba
 create user  dba  IDENTIFIED by 'dba' ;     
-   -- ÎªDBA¸³Óè¹ÜÀíÕû¸öÊı¾İ¿âµÄÈ¨ÏŞ    
+   -- ä¸ºDBAèµ‹äºˆç®¡ç†æ•´ä¸ªæ•°æ®åº“çš„æƒé™    
 grant all on `database` to dba@`%` ; 
 
-   -- ´´½¨ÊĞ¼¶ÓÃ»§£¬ÃÜÂëÎª shi;
+   -- åˆ›å»ºå¸‚çº§ç”¨æˆ·ï¼Œå¯†ç ä¸º shi;
 create user  shi  IDENTIFIED by 'shi' ;       
-   -- ÎªÊĞ¼¶ÓÃ»§·ÖÅäcompany±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ 
+   -- ä¸ºå¸‚çº§ç”¨æˆ·åˆ†é…companyè¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™ 
 grant select, insert, update, delete on `database`.company to shi@`%`;     
-   -- ÎªÊĞ¼¶ÓÃ»§·ÖÅädataacquisition±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ     
+   -- ä¸ºå¸‚çº§ç”¨æˆ·åˆ†é…dataacquisitionè¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™     
 grant select, insert, update, delete on `database`.dataacquisition to shi@`%`;  
-   -- ÎªÊĞ¼¶ÓÃ»§·ÖÅänotice±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ
+   -- ä¸ºå¸‚çº§ç”¨æˆ·åˆ†é…noticeè¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™
 grant select, insert, update, delete on `database`.notice to shi@`%`;           
 
-   -- ´´½¨ÆóÒµ¼¶ÓÃ»§£¬ÃÜÂëÎª qiye;
+   -- åˆ›å»ºä¼ä¸šçº§ç”¨æˆ·ï¼Œå¯†ç ä¸º qiye;
 create user  qiye  IDENTIFIED by 'qiye' ;      
-   -- ÎªÆóÒµ¼¶ÓÃ»§·ÖÅäompany±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ
+   -- ä¸ºä¼ä¸šçº§ç”¨æˆ·åˆ†é…ompanyè¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™
 grant select, insert, update, delete on `database`.company to qiye@`%` ;  
-   -- ÎªÆóÒµ¼¶ÓÃ»§·ÖÅädataacquisition±íµÄÔö¡¢É¾¡¢¸Ä¡¢²éµÄÈ¨ÏŞ      
+   -- ä¸ºä¼ä¸šçº§ç”¨æˆ·åˆ†é…dataacquisitionè¡¨çš„å¢ã€åˆ ã€æ”¹ã€æŸ¥çš„æƒé™      
 grant select, insert, update, delete on `database`.dataacquisition to qiye@`%` ;
