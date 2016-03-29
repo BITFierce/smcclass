@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-27 23:46:10
+Date: 2016-03-29 10:38:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,8 @@ CREATE TABLE `dataacquisition` (
   `FirstReason` varchar(200) DEFAULT NULL,
   `SecondReason` varchar(200) DEFAULT NULL,
   `ThirdReason` varchar(200) DEFAULT NULL,
-  `Check` varchar(20) DEFAULT NULL,
+  `CityCheck` varchar(20) NOT NULL,
+  `ProvinceCheck` varchar(20) NOT NULL,
   `CollectionTime` date NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,
