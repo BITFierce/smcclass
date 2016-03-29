@@ -10,26 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-29 16:56:30
+Date: 2016-03-29 16:56:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `goverment`
+-- Table structure for `citygoverment`
 -- ----------------------------
-DROP TABLE IF EXISTS `goverment`;
-CREATE TABLE `goverment` (
-  `GovermentNumber` varchar(20) NOT NULL,
-  `GovermentName` varchar(20) NOT NULL,
-  `GovermentUsername` varchar(20) NOT NULL,
+DROP TABLE IF EXISTS `citygoverment`;
+CREATE TABLE `citygoverment` (
+  `CityGovermentNumber` varchar(20) NOT NULL,
+  `CityGovermentName` varchar(20) NOT NULL,
+  `CityGovermentUsername` varchar(20) NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`GovermentNumber`),
-  KEY `FK_Governmwnt` (`GovermentUsername`),
-  CONSTRAINT `FK_Governmwnt` FOREIGN KEY (`GovermentUsername`) REFERENCES `user` (`UserName`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`CityGovermentNumber`),
+  KEY `FK_CityGoverment` (`CityGovermentUsername`),
+  CONSTRAINT `FK_CityGoverment` FOREIGN KEY (`CityGovermentUsername`) REFERENCES `user` (`UserName`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of goverment
+-- Records of citygoverment
 -- ----------------------------

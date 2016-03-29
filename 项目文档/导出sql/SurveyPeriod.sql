@@ -10,25 +10,22 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-29 16:56:47
+Date: 2016-03-29 16:56:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for `surveyperiod`
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `UserID` varchar(20) NOT NULL,
-  `UserName` varchar(20) NOT NULL,
-  `UserPassword` varchar(20) NOT NULL,
-  `UserType` varchar(20) NOT NULL,
-  `spare1` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`UserID`),
-  KEY `UserName` (`UserName`)
+DROP TABLE IF EXISTS `surveyperiod`;
+CREATE TABLE `surveyperiod` (
+  `SurveyID` int(11) NOT NULL AUTO_INCREMENT,
+  `SurveyStartTime` date NOT NULL,
+  `SurveyEndTime` date NOT NULL,
+  PRIMARY KEY (`SurveyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of user
+-- Records of surveyperiod
 -- ----------------------------
