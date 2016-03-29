@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `dataacquisition`;
 CREATE TABLE `dataacquisition` (
-  `InstitutionNumber` varchar(20) NOT NULL,
+  `InstitutionNumber` int NOT NULL,
   `FilingPeriodEmploymentNumber` int(11) NOT NULL,
   `SurveyPeriodEmploymentNumber` int(11) NOT NULL,
   `OtherReason` varchar(200) DEFAULT NULL,

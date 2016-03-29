@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
-  `Author` varchar(20) NOT NULL,
+  `Author` int NOT NULL,
   `Time` date NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Text` varchar(2000) DEFAULT NULL,

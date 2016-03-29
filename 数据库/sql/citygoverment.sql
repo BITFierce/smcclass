@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `citygoverment`;
 CREATE TABLE `citygoverment` (
-  `CityGovermentNumber` varchar(20) NOT NULL,
+  `CityGovermentNumber` int NOT NULL,
   `CityGovermentName` varchar(20) NOT NULL,
   `CityGovermentUsername` varchar(20) NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
