@@ -37,12 +37,16 @@
 	cursor:pointer;
 }
 
-#picture{
+#CPUUsing{
 	float: left;
 }
 
-#table{
-	float: right;
+#HardDiskUsing{
+	float: left;
+}
+
+#MemoryUsing{
+	float: left;
 }
 
 #mytable{
