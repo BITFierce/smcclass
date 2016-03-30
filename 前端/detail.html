@@ -1,6 +1,6 @@
-<html>
+﻿<html>
 	<head>
-		<title>ɽ��ʡ������Դ�г����ݲɼ�ϵͳ</title>
+		<title>山东省人力资源市场数据采集系统</title>
 		<link rel="stylesheet" href="css/Detail.css" media="screen" type="text/css" />
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -13,16 +13,16 @@
 		<div id="container">
 			<div class="head">
 				<div></div>
-				<span>������ҵ��Ϣ</span>
+				<span>完善企业信息</span>
 			</div>
 			<form id="table" class="tform" name="table" action="" method="post">
 				<table>
 					<tr>
-						<td>*��������:</td>
+						<td>*所属地区:</td>
 						<td>
-							�У�<select id="nature1"></select>
-							��/��/�У�<select id="nature2"></select>
-							����<select id="nature3"></select>
+							市：<select id="nature1"></select>
+							区/县/市：<select id="nature2"></select>
+							区域：<select id="nature3"></select>
 							
 							<script>
 								addressInit('nature1', 'nature2', 'nature3');
@@ -30,59 +30,59 @@
 						</td>
 					</tr>
 					<tr>
-						<td>*��֯����</td>
+						<td>*组织机构</td>
 						<td><input type="text" id="organization" name="organization" /></td>
 					</tr>
 					<tr>
-						<td>*��ҵ����</td>
+						<td>*企业名称</td>
 						<td><input type="text" id="name" name="name" /></td>
 					</tr>
 					<tr>
-						<td>*��ҵ����</td>
+						<td>*企业性质</td>
 						<td>
 							<select id="nature1" name="nature1">
-								<option value="������ҵ">������ҵ</option>
-								<option value="������ҵ">������ҵ</option>
-								<option value="��Ӫ��ҵ">��Ӫ��ҵ</option>
-								<option value="�ɷݺ�������ҵ">�ɷݺ�������ҵ</option>
-								<option value="˽Ӫ��ҵ">˽Ӫ��ҵ</option>
-								<option value="���廧">���廧</option>
-								<option value="�ϻ���ҵ">�ϻ���ҵ</option>
-								<option value="�������ι�˾">�������ι�˾</option>
-								<option value="�ɷ����޹�˾">�ɷ����޹�˾</option>
+								<option value="国有企业">国有企业</option>
+								<option value="集体企业">集体企业</option>
+								<option value="联营企业">联营企业</option>
+								<option value="股份合作制企业">股份合作制企业</option>
+								<option value="私营企业">私营企业</option>
+								<option value="个体户">个体户</option>
+								<option value="合伙企业">合伙企业</option>
+								<option value="有限责任公司">有限责任公司</option>
+								<option value="股份有限公司">股份有限公司</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td>*������ҵ</td>
+						<td>*所属行业</td>
 						<td>
 							<select id="industry1" name="industry1" onChange="changeselect(this.value)">
-								<option>��ѡ���һ����</option>
-								<option value="1">ũ���֣�������ҵ</option>
-								<option value="2">�ɿ�ҵ</option>
-								<option value="3">����ҵ</option>
-								<option value="4">������ȼ����ˮ�������͹�Ӧҵ</option>
-								<option value="5">����ҵ</option>
+								<option>请选择第一大类</option>
+								<option value="1">农，林，牧，鱼业</option>
+								<option value="2">采矿业</option>
+								<option value="3">制造业</option>
+								<option value="4">电力，燃气及水的生产和供应业</option>
+								<option value="5">建筑业</option>
 							</select>
 							<select id="industry2" name="s2">
-								<option>��ѡ��ڶ�С��</option>
+								<option>请选择第二小类</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td>*��Ҫ��Ӫҵ��</td>
+						<td>*主要经营业务</td>
 						<td><input type="text" id="work" name="work" /></td>
 					</tr>
 					<tr>
-						<td>*��ϵ��</td>
+						<td>*联系人</td>
 						<td><input type="text" id="linker" name="linker" /></td>
 					</tr>
 					<tr>
-						<td>*��ϵ��ַ</td>
+						<td>*联系地址</td>
 						<td><input type="text" id="address" name="address" /></td>
 					</tr>
 					<tr>
-						<td>*��������</td>
+						<td>*邮政编码</td>
 						<td><input type="text" id="code" name="code" /></td>
 					</tr>
 					<tr>
@@ -93,8 +93,8 @@
 			</form>
 			
 			<div class="i-footer">
-				<input style="width:80px;" type="submit" id="done" name="done" value="���"/>
-				<input style="width:80px;" type="submit" id="exit" name="exit" value="ȡ��"/>
+				<input style="width:80px;" type="submit" id="done" name="done" value="完成"/>
+				<input style="width:80px;" type="submit" id="exit" name="exit" value="取消"/>
 			</div>
 			
 		</div>
