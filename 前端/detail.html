@@ -6,6 +6,7 @@
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 		<script type="text/javascript" src="js/address.js"></script>
+		<script type="text/javascript" src="js/addIndustry.js"></script>
 	</head>
 
 	<body>
@@ -40,25 +41,31 @@
 						<td>*企业性质</td>
 						<td>
 							<select id="nature1" name="nature1">
-								<option value="一级">一级</option>
-								<option value="二级">二级</option>
-							</select>
-							<select id="nature2" name="nature2">
-								<option value="一级">一级</option>
-								<option value="二级">二级</option>
+								<option value="国有企业">国有企业</option>
+								<option value="集体企业">集体企业</option>
+								<option value="联营企业">联营企业</option>
+								<option value="股份合作制企业">股份合作制企业</option>
+								<option value="私营企业">私营企业</option>
+								<option value="个体户">个体户</option>
+								<option value="合伙企业">合伙企业</option>
+								<option value="有限责任公司">有限责任公司</option>
+								<option value="股份有限公司">股份有限公司</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>*所属行业</td>
 						<td>
-							<select id="industry1" name="industry1">
-								<option value="一级">一级</option>
-								<option value="二级">二级</option>
+							<select id="industry1" name="industry1" onChange="changeselect(this.value)">
+								<option>请选择第一大类</option>
+								<option value="1">农，林，牧，鱼业</option>
+								<option value="2">采矿业</option>
+								<option value="3">制造业</option>
+								<option value="4">电力，燃气及水的生产和供应业</option>
+								<option value="5">建筑业</option>
 							</select>
-							<select id="industry2" name="industry2">
-								<option value="一级">一级</option>
-								<option value="二级">二级</option>
+							<select id="industry2" name="s2">
+								<option>请选择第二小类</option>
 							</select>
 						</td>
 					</tr>
