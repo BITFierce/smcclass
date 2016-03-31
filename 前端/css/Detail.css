@@ -50,13 +50,13 @@ table, tr, td, th{
 }
 
 .tform table{
-	width:800px;
+	width:1100px;
 	height:420px;
 	float:left;
 }
 
-#area, #organization, #name, #nature1, #nature2, #industry1, #industry2, #work, #linker, #address, #code, #email{
-	width:300px;
+#area, #organization, #name, #nature1, #nature2, #nature3, #industry1, #industry2, #work, #linker, #address, #code, #Fax, #PhoneNumber, #email{
+	width:250px;
 	height:31px;
 	margin-top:6px;
 }

@@ -1,34 +1,28 @@
-﻿<?php session_start(); ?>
+﻿<?php
+	if (isset($_COOKIE["sesID"]))
+	{
+		session_id($_COOKIE["sesID"]);
+		session_start();
+	}
+	else {
+		session_start();
+		setcookie("sesID", session_id(), time() + 3600);
+	}
+?>
 <html>
-<head>
-<title>山东省人力资源市场数据采集系统</title>
+	<head>
+		<title>山东省人力资源市场数据采集系统</title>
 		<link rel="stylesheet" href="css/Detail.css" media="screen" type="text/css" />
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="js/address.js"></script>
-<style type="text/css">
-#information {
-	background-color:#f6f6f6;
-	width:100%;
-}
-h2 {
-	color:#484848;
-}
-.error 
-{
-	color:red;
-}
-</style>
-</head>
+		<script type="text/javascript" src="js/address.js"></script>
+	</head>
 <body>
 
 <?php
-	$localErr = $CompanyCodeErr = $CompanyNameErr = $CompanyNatureErr = $IndustryInvolvedErr = $MainManageErr 
-	=$LinkManErr = $LinkAddressErr = $PhoneNumberErr = $PostCodeErr = $FaxErr = $EmailErr = "";
-	$local = $CompanyCode = $CompanyName = $CompanyNature = $IndustryInvolved = $MainManage 
-	= $LinkMan = $LinkAddress = $PhoneNumber =$PostCode = $Fax =$Email ="";
+	$CompanyCodeErr = $CompanyNameErr = $MainManageErr =$LinkManErr = $LinkAddressErr = $PhoneNumberErr = $PostCodeErr = $FaxErr = $EmailErr = "";
+	$local = $CompanyCode = $CompanyName = $CompanyNature = $IndustryInvolved = $MainManage = $LinkMan = $LinkAddress = $PhoneNumber =$PostCode = $Fax =$Email ="";
 	//连接数据库
 	$connect=mysql_connect("localhost:3306","root","root")or die ("不能连接数据库");
 	//强转一下数据库字符
@@ -41,30 +35,15 @@ h2 {
 	if(!empty($row))
 	{
 		//如果不为空，弹窗提示已经完善过
-		echo "<script>alert('您已完善过企业信息！');</script>";
-		//将信息填到表单中
-		$local=$row['CompanyAddr'];
-		$CompanyCode=$row['CompanyNumber'];
-		$CompanyName=$row['CompanyName'];
-		$CompanyNature=$row['CompanyProperty'];//性质
-		$IndustryInvolved=$row['CompanyIndustry'];//所属行业
-		$MainManage=$row['CompanyBusiness'];//经营
-		$LinkMan=$row['CompanyContact'];
-		$LinkAddress=$row['CompanyContactAddr'];
-		$PhoneNumber=$row['CompanyPhone'];
-		$PostCode=$row['CompanyPostcode'];
-		$Fax=$row['CompanyFax'];
-		$Email=$row['CompanyMail'];
+
+		echo "<script> alert ('您已完善过企业信息！');</script>";
+		//返回界面
+		echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=cover.html\"></head></html>";
 	}
+
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
-		if (empty($_POST["Local"])) 
-		{
-			$localErr = "<b class='error'> * 请输入地区</b>";
-		} else 
-		{
-			$local = $_POST["Local"];
-		}
+		$local = $_POST["Addr1"].$_POST['Addr2'].$_POST['Addr3'];
 		if (empty($_POST["CompanyCode"])) 
 		{
 			$CompanyCodeErr = "<b class='error'> * 请输入组织机构代码</b>";
@@ -87,20 +66,11 @@ h2 {
 		{
 			$CompanyName = $_POST["CompanyName"];
 		}
-		if (empty($_POST["CompanyNature"])) 
-		{
-			$CompanyNatureErr = "<b class='error'> * 请输入企业性质</b>";
-		} else 
-		{
-			$CompanyNature = $_POST["CompanyNature"];
-		}
-		if (empty($_POST["IndustryInvolved"])) 
-		{
-			$IndustryInvolvedErr = "<b class='error'> * 请输入所属行业</b>";
-		} else 
-		{
-			$IndustryInvolved = $_POST["IndustryInvolved"];
-		}
+
+		$CompanyNature = $_POST["CompanyNature"];
+
+		$IndustryInvolved = $_POST["IndustryInvolved"];
+
 		if (empty($_POST["MainManage"])) 
 		{
 			$MainManageErr = "<b class='error'> * 请输入主要经营业务</b>";
@@ -135,6 +105,10 @@ h2 {
 		} else 
 		{
 			$PostCode = $_POST["PostCode"];
+			if (!preg_match("/^[0-9]{6}$/",$PostCode))
+			{
+				$PostCodeErr = "<b class='error'> * 邮编必须为6位数字</b>";
+			}
 		}		
 		if (empty($_POST["Fax"])) 
 		{
@@ -155,9 +129,9 @@ h2 {
 			}
 			
 		}
+
 		//判断是否可以提交到数据库
-		if($localErr!=''&&$CompanyCodeErr!=''&&$CompanyNameErr!=''&&$CompanyNatureErr!=''&&$IndustryInvolvedErr!=''&&$MainManageErr!=''&&$LinkManErr!=''
-		&&$LinkAddressErr!=''&&$PhoneNumberErr!=''&&$PostCodeErr!=''&&$FaxErr!=''&&$EmailErr!='')
+		if($CompanyCodeErr==''&&$CompanyNameErr==''&&$MainManageErr==''&&$LinkManErr==''&&$LinkAddressErr==''&&$PhoneNumberErr==''&&$PostCodeErr==''&&$FaxErr==''&&$EmailErr=='')
 		{
 			$sql_insert="INSERT INTO company (CompanyAddr, CompanyUsername, CompanyNumber, CompanyName ,CompanyProperty, CompanyIndustry, CompanyBusiness ,
 			CompanyContact, CompanyContactAddr, CompanyPhone ,CompanyPostcode, CompanyFax, CompanyMail) 
@@ -173,174 +147,98 @@ h2 {
 	//关闭数据库连接
 	mysql_close($connect);
 ?>
-<h2>完善企业信息:</h2>
+		<div id="container">
+			<div class="head">
+				<div></div>
+				<span>完善企业信息</span>
+			</div>
+			<form id="table" class="tform" name="table" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+				<table>
+					<tr>
+						<td>*所属地区:</td>
+						<td>
+							市：<select id="nature1" name="Addr1"></select>
+							区/县/市：<select id="nature2" name="Addr2"></select>
+							区域：<select id="nature3" name="Addr3"></select>
+							<script>
+								addressInit('nature1', 'nature2', 'nature3');
+							</script>
+						</td>
+					</tr>
+					<tr>
+						<td>*组织机构代码</td>
+						<td><input type="text" id="organization" name="CompanyCode" value="<?php echo $CompanyCode?>"/><?php echo $CompanyCodeErr ?></td>
+					</tr>
+					<tr>
+						<td>*企业名称</td>
+						<td><input type="text" id="name" name="CompanyName" value="<?php echo $CompanyName?>"/><?php echo $CompanyNameErr ?></td>
+					</tr>
+					<tr>
+						<td>*企业性质</td>
+						<td>
+							<select id="nature1" name="CompanyNature">
+								<option value="国有企业">国有企业</option>
+								<option value="集体企业">集体企业</option>
+								<option value="联营企业">联营企业</option>
+								<option value="股份合作制企业">股份合作制企业</option>
+								<option value="私营企业">私营企业</option>
+								<option value="个体户">个体户</option>
+								<option value="合伙企业">合伙企业</option>
+								<option value="有限责任公司">有限责任公司</option>
+								<option value="股份有限公司">股份有限公司</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>*所属行业</td>
+						<td>
+							<select id="industry1" name="IndustryInvolved">
+								<option value="农，林，牧，鱼业">农，林，牧，鱼业</option>
+								<option value="采矿业">采矿业</option>
+								<option value="制造业">制造业</option>
+								<option value="电力，燃气及水的生产和供应业">电力，燃气及水的生产和供应业</option>
+								<option value="建筑业">建筑业</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>*主要经营业务</td>
+						<td><input type="text" id="work" name="MainManage" value="<?php echo $MainManage?>"/><?php echo $MainManageErr ?></td>
+					</tr>
+					<tr>
+						<td>*联系人</td>
+						<td><input type="text" id="linker" name="LinkMan" value="<?php echo $LinkMan?>"/><?php echo $LinkManErr ?></td>
+					</tr>
+					<tr>
+						<td>*联系地址</td>
+						<td><input type="text" id="address" name="LinkAddress" value="<?php echo $LinkAddress?>"/><?php echo $LinkAddressErr ?></td>
+					</tr>
+					<tr>
+						<td>*联系电话</td>
+						<td><input type="text" id="PhoneNumber" name="PhoneNumber" value="<?php echo $PhoneNumber?>"/><?php echo $PhoneNumberErr ?></td>
+					</tr>
+					<tr>
+						<td>*邮政编码</td>
+						<td><input type="text" id="code" name="PostCode" value="<?php echo $PostCode?>"/><?php echo $PostCodeErr ?></td>
+					</tr>
+					<tr>
+						<td>*传真</td>
+						<td><input type="text" id="Fax" name="Fax" value="<?php echo $Fax?>"/><?php echo $FaxErr ?></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="text" id="email" name="Email" value="<?php echo $Email?>"/><?php echo $EmailErr ?></td>
+					</tr>
+				</table>
+				<div class="i-footer">
+					<input style="width:80px;" type="submit" id="done" name="done" value="完成"/>
+				</div>
+			</form>
+			
 
-<table id="information" border="0" align="center">
-<form name="LocalInput" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-<tr>
- <td>
- *所属地区：
- <br />
-<div>
-市：<select id="addrCity"></select>
-区/县/市：<select id="addrCounty"></select>
-区域：<select id="addrArea"></select>
-
-<script type="text/javascript">
-addressInit('addrCity', 'addrCounty', 'addrArea');
-</script>
-</div>
- <!--
- <input type="text" name="Local" value="<?php echo $local?>"/>
- <?php echo $localErr ?>
- -->
- </td>
-</tr>
-
-<tr>
- <td>
- *组织机构代码：
- <br />
- <input type="text" name="CompanyCode" value="<?php echo $CompanyCode?>"/>
-  <?php echo $CompanyCodeErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *企业名称：
- <br />
- <input type="text" name="CompanyName" value="<?php echo $CompanyName?>"/>
- <?php echo $CompanyNameErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *企业性质：
- <br />
-   <select name="CompanyNature1" style="width:146px;">
-   <option value="一级" <?php  
-							if($CompanyNature=="一级") 
-								echo "selected='selected'";										
-						?> >一级</option>
-   <option value="二级" <?php  
-							if($CompanyNature=="二级") 
-								echo "selected='selected'";										
-						?> >二级</option>
-   </select>
-   <select name="CompanyNature2" style="width:146px;">
-   <option value="一级" <?php  
-							if($CompanyNature=="一级") 
-								echo "selected='selected'";										
-						?> >一级</option>
-   <option value="二级" <?php  
-							if($CompanyNature=="二级") 
-								echo "selected='selected'";										
-						?> >二级</option>
-   </select>
- <?php echo $CompanyNatureErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *所属行业：
- <br />
-   <select name="IndustryInvolved1" style="width:146px;">
-   <option value="一级" <?php  
-							if($IndustryInvolved=="一级") 
-								echo "selected='selected'";
-						?> >一级</option>
-   <option value="二级" <?php  
-							if($IndustryInvolved=="二级") 
-								echo "selected='selected'";
-						?> >二级</option>
-   </select>
-   <select name="IndustryInvolved2" style="width:146px;">
-   <option value="一级" <?php  
-							if($IndustryInvolved=="一级") 
-								echo "selected='selected'";
-						?> >一级</option>
-   <option value="二级" <?php  
-							if($IndustryInvolved=="二级") 
-								echo "selected='selected'";
-						?> >二级</option>
-   </select>
-   <?php echo $IndustryInvolvedErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *主要经营业务：
- <br />
- <input type="text" name="MainManage" value="<?php echo $MainManage?>"/>
- <?php echo $MainManageErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *联系人：
- <br />
- <input type="text" name="LinkMan" value="<?php echo $LinkMan?>"/>
- <?php echo $LinkManErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *联系地址：
- <br />
- <input type="text" name="LinkAddress" value="<?php echo $LinkAddress?>"/>
- <?php echo $LinkAddressErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *邮政编码（6位）：
- <br />
- <input type="text" name="PostCode" value="<?php echo $PostCode?>"/>
- <?php echo $PostCodeErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *联系电话：
- <br />
- <input type="text" name="PhoneNumber" value="<?php echo $PhoneNumber?>"/>
- <?php echo $PhoneNumberErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- *传真：
- <br />
- <input type="text" name="Fax" value="<?php echo $Fax?>"/>
- <?php echo $FaxErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- EMAIL(xxx@xxx.xxx)：
- <br />
- <input type="text" name="Email" value="<?php echo $Email?>"/>
- <?php echo $EmailErr ?>
- </td>
-</tr>
-
-<tr>
- <td>
- <input type="submit" value="提交"/>
- </td>
-</tr>
- </form>
-</table>
+			
+		</div>
+		
 
 </body>
 </html>
