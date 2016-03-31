@@ -5,7 +5,8 @@ DROP PROCEDURE IF EXISTS `CreGovUser`;
 DELIMITER //
 CREATE PROCEDURE CreGovUser(IN UserName varchar(20), IN UserPassword varchar(20), 
                             IN UserType varchar(20), IN GovermentNumber varchar(20),
-                            IN GovermentName varchar(20))   
+                            IN GovermentName varchar(20))  
+sql security invoker 
 BEGIN
   -- 插入user表
   INSERT INTO `user`(UserName,UserPassword,UserType) 
@@ -26,7 +27,8 @@ DROP PROCEDURE IF EXISTS `CreCityGovUser`;
 DELIMITER //
 CREATE PROCEDURE CreCityGovUser(IN UserName varchar(20), IN UserPassword varchar(20), 
                                 IN UserType varchar(20), IN CityGovermentNumber varchar(20),
-                                IN CityGovermentName varchar(20))   
+                                IN CityGovermentName varchar(20))
+sql security invoker    
 BEGIN
   -- 插入user表
   INSERT INTO `user`(UserName,UserPassword,UserType) 
@@ -52,7 +54,8 @@ CREATE PROCEDURE CreComUser(IN UserName varchar(20),       IN UserPassword varch
                             IN CompanyNumber varchar(20),  IN CompanyName varchar(20),       IN CompanyAddr varchar(20),
                             IN CompanyProperty varchar(20),IN CompanyIndustry varchar(20),   IN CompanyBusiness varchar(20),
                             IN CompanyContact varchar(20), IN CompanyContactAddr varchar(20),IN CompanyPostcode int,
-                            IN CompanyPhone varchar(20),   IN CompanyFax varchar(20),        IN CompanyMail varchar(20))   
+                            IN CompanyPhone varchar(20),   IN CompanyFax varchar(20),        IN CompanyMail varchar(20))  
+sql security invoker  
 BEGIN
   -- 插入user表
   INSERT INTO `user`(UserName,UserPassword,UserType) 
@@ -67,4 +70,6 @@ BEGIN
 END //
 
 DELIMITER ;
+
+flush privileges;
 
