@@ -1,7 +1,7 @@
 ﻿   -- 创建省级用户，密码为 sheng
 create user  sheng   IDENTIFIED by 'sheng' ;         
    -- 为省级用户赋予所有表的增、删、改、查的权限            
-grant select, insert, update, delete on `database`.* to sheng@`%` ; 
+grant select, insert, update, delete ,execute on `database`.* to sheng@`%` ; 
 
    -- 创建DBA用户，密码为dba
 create user  dba  IDENTIFIED by 'dba' ;     
