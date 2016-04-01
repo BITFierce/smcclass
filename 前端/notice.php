@@ -1,4 +1,15 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+	if (isset($_COOKIE["sesID"]))
+	{
+		session_id($_COOKIE["sesID"]);
+		session_start();
+	}
+	else {
+		session_start();
+		setcookie("sesID", session_id(), time() + 3600);
+	}
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <?php
@@ -15,29 +26,48 @@
 ?>
 
 <script>
+	function allNotice()
+	{
+		$(".cstyle").each(function() {
+			$(this).attr("style","display:block");
+		});
+	}
 	function proNotice()
 	{
 		$(".cstyle").each(function() {
-			if ($("span:eq(2)",this).text() == "企业级")
+			if ($("span:eq(2)",this).text() == "省级")
 			{
-				$(this).attr("style","display:none");
+				$(this).attr("style","display:block");
 			}
 			else
 			{
-				$(this).attr("style","display:block");
+				$(this).attr("style","display:none");
 			}
 		});
 	}
 	function entNotice()
 	{
 		$(".cstyle").each(function() {
-			if ($("span:eq(2)",this).text() == "省级")
+			if ($("span:eq(2)",this).text() == "企业级")
 			{
-				$(this).attr("style","display:none");
+				$(this).attr("style","display:block");
 			}
 			else
 			{
+				$(this).attr("style","display:none");
+			}
+		});
+	}
+	function citNotice()
+	{
+		$(".cstyle").each(function() {
+			if ($("span:eq(2)",this).text() == "市级")
+			{
 				$(this).attr("style","display:block");
+			}
+			else
+			{
+				$(this).attr("style","display:none");
 			}
 		});
 	}
@@ -86,21 +116,24 @@
 		
 		<div class="type">
 			<span>通知类型</span>
+			<a class="typea" href="#" onclick="allNotice();">全部通知</a>
 			<a class="typea" href="#" onclick="proNotice();">省通知</a>
 			<a class="typea" href="#" onclick="entNotice();">企业通知</a>
+			<a class="typea" href="#" onclick="citNotice();">市通知</a>
 		</div>
 		
 		<div class="title">
 			<span>序号</span>
 			<span style="width:300px;">通知标题</span>
 			<span style="width:100px;">类型</span>
+			<span style="width:100px;">作者</span>
 			<span style="width:100px;">发布时间</span>
 		</div>
 		
 		<div class="content">
 		<?php
 			
-			$sql = "select `NoticeID`, `Title`, `Author`,`Time` from `notice`";
+			$sql = "select `Author`, `NoticeID`, `Title`, `Type`,`Time` from `notice`";
 		    
 			$result = mysql_query($sql, $connect);
 			while ($news = mysql_fetch_assoc($result))
@@ -108,10 +141,13 @@
 				echo "<div class=\"cstyle\" onclick=\"location = 'NoticeDetail.php?nid=".$news["NoticeID"]."';\">";
 				echo "<span>".$news["NoticeID"]."</span>";
 				echo "<span style=\"width:300px;\">".$news["Title"]."</span>";
-				if ($news["Author"] == "1")
+				if ($news["Type"] == "1")
 					echo "<span style=\"width:100px;\">"."省级"."</span>";
-				else if ($news["Author"] == "2")
+				else if ($news["Type"] == "2")
 					echo "<span style=\"width:100px;\">"."企业级"."</span>";
+				else if ($news["Type"] == "3")
+					echo "<span style=\"width:100px;\">"."市级"."</span>";
+				echo "<span style=\"width:100px;\">".$news["Author"]."</span>";
 				echo "<span style=\"width:100px;\">".$news["Time"]."</span>";
 				echo "<a href=\"notice.php?nid=".$news["NoticeID"]."\">删除</a>";
 				echo "<a href=\"EditNotice.php?nid=".$news["NoticeID"]."\">修改</a>";

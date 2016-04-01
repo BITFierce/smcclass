@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+  if (isset($_COOKIE["sesID"]))
+  {
+    session_id($_COOKIE["sesID"]);
+    session_start();
+  }
+  else {
+    session_start();
+    setcookie("sesID", session_id(), time() + 3600);
+  }
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -64,7 +75,13 @@
             $connect = mysql_connect($databaseURL, $root, $password);
             mysql_query("set names 'utf8'",$connect);
             mysql_select_db($database, $connect);
-            $sql = "update `notice` set `Title` = '".$_POST["title"]."', `Text` = '".$_POST["heditor"]."' where `NoticeID` = ".$_GET["nid"].";";
+            $sql = "";
+            if ($_POST["typ"] == "pro")
+              $sql = "update `notice` set `Title` = '".$_POST["title"]."', `Text` = '".$_POST["heditor"]."', `Author`='".$_SESSION["userName"]."', `Type`=1 where `NoticeID` = ".$_GET["nid"].";";
+            else if ($_POST["typ"] == "ent")
+              $sql = "update `notice` set `Title` = '".$_POST["title"]."', `Text` = '".$_POST["heditor"]."', `Author`='".$_SESSION["userName"]."', `Type`=2 where `NoticeID` = ".$_GET["nid"].";";
+            else if ($_POST["typ"] == "cit")
+              $sql = "update `notice` set `Title` = '".$_POST["title"]."', `Text` = '".$_POST["heditor"]."', `Author`='".$_SESSION["userName"]."', `Type`=3 where `NoticeID` = ".$_GET["nid"].";";
 
             mysql_query($sql, $connect);
             echo "<script>alert(\"修改成功！\");</script>";
@@ -87,7 +104,7 @@
       $connect = mysql_connect($databaseURL, $root, $password);
       mysql_query("set names 'utf8'",$connect);
       mysql_select_db($database, $connect);
-      $sql = "select `Title`, `Text` from `notice` where `NoticeID`=".$_GET["nid"];
+      $sql = "select `Title`, `Text`, `Type` from `notice` where `NoticeID`=".$_GET["nid"];
       $result = mysql_query($sql, $connect);
       $news = mysql_fetch_assoc($result);
 
@@ -159,13 +176,20 @@
     <input id="heditor" name="heditor" type="hidden" value="" />
     <div id="editor"><?php
       echo $news["Text"];
+    
+    ?></div>选择查看对象：
+    <input type="radio" name="typ" value="pro" <?php if ($news["Type"] == "1") {echo "checked=\"checked\"";} ?>/>省级
+    <input type="radio" name="typ" value="ent" <?php if ($news["Type"] == "2") {echo "checked=\"checked\"";} ?>/>企业级
+    <input type="radio" name="typ" value="cit" <?php if ($news["Type"] == "3") {echo "checked=\"checked\"";} ?>/>市级
+    <?php
     }
     catch(Exception $e)
     {
       echo "<script>alert(\"出错了！错误信息：".$e."\");</script>";
     }
   }
-    ?></div>
+    ?>
+    </div>
 	
 	</div>
 	<div class="i-footer">

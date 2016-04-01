@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+  if (isset($_COOKIE["sesID"]))
+  {
+    session_id($_COOKIE["sesID"]);
+    session_start();
+  }
+  else {
+    session_start();
+    setcookie("sesID", session_id(), time() + 3600);
+  }
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -59,7 +70,13 @@
             $connect = mysql_connect($databaseURL, $root, $password);
             mysql_query("set names 'utf8'",$connect);
             mysql_select_db($database, $connect);
-            $sql = "insert into `notice` (`Author`, `Title`, `Text`) values (1, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+            $sql = "";
+            if ($_POST["typ"] == "pro")
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."', 1, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+            else if ($_POST["typ"] == "ent")
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."', 2, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+            else if ($_POST["typ"] == "cit")
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."', 3, '".$_POST["title"]."', '".$_POST["heditor"]."');";
 
             mysql_query($sql, $connect);
             echo "<script>alert(\"添加成功！\");</script>";
@@ -140,7 +157,10 @@
       <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
     </div>
     <input id="heditor" name="heditor" type="hidden" value="" />
-    <div id="editor"></div>
+    <div id="editor"></div>选择查看对象：
+    <input type="radio" name="typ" value="pro" checked="checked"/>省级
+    <input type="radio" name="typ" value="ent" />企业级
+    <input type="radio" name="typ" value="cit" />市级
   
   </div>
   

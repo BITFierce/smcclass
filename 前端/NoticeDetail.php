@@ -1,4 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+	if (isset($_COOKIE["sesID"]))
+	{
+		session_id($_COOKIE["sesID"]);
+		session_start();
+	}
+	else {
+		session_start();
+		setcookie("sesID", session_id(), time() + 3600);
+	}
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -37,14 +48,19 @@
 				<div class=\"title\">
 				<span style=\"font-size:25px; height:35px;\">".$res["Title"]."</span>
 				<span style=\"font-size:14px; height:15px;\">";
-				if ($res["Author"] == "1")
+				if ($res["Type"] == "1")
 				{
-					echo "省级";
+					echo "省级 ";
 				}
-				else if ($res["Author"] == "2")
+				else if ($res["Type"] == "2")
 				{
-					echo "企业级";
+					echo "企业级 ";
 				}
+				else if ($res["Type"] == "3")
+				{
+					echo "市级 ";
+				}
+				echo "作者：".$_SESSION["userName"];
 				echo "</span>
 				</div>
 				<div class=\"content\" style=\"text-align:center; font:20px;\">".

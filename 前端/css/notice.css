@@ -101,6 +101,29 @@
 	height:40px;
 	padding:10px 0;
 	border-bottom:solid 1px #e9e9e9;
+	background-color:#fff;
+}
+
+.cstyle:hover{
+	background-color:#f7dad8;
+}
+
+.cstyle a{
+	text-decoration:none;
+	display:none;
+	float:left;
+	line-height:20px;
+	margin-top:10px;
+	margin-left:20px;
+	color:#db4544;
+	font-size:16px;
+	height:20px;
+	width:50px;
+	
+}
+
+.cstyle:hover a{
+	display:block;
 }
 
 .i-foot{
