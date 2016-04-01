@@ -29,18 +29,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `notice` (
   `NoticeID` int(11) NOT NULL,
   `Author` varchar(20) NOT NULL,
-  `Time` date NOT NULL,
+  `Type` varchar(20) DEFAULT NULL,
+  `Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Title` varchar(50) NOT NULL,
   `Text` varchar(2000) DEFAULT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE `notice`
-  ADD PRIMARY KEY (`NoticeID`);
-
-ALTER TABLE `notice`
-  MODIFY `NoticeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 转存表中的数据 `notice`
@@ -52,6 +47,8 @@ ALTER TABLE `notice`
 --
 -- Indexes for table `notice`
 --
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`NoticeID`);
 
 --
 -- 在导出的表使用AUTO_INCREMENT
@@ -60,6 +57,8 @@ ALTER TABLE `notice`
 --
 -- 使用表AUTO_INCREMENT `notice`
 --
+ALTER TABLE `notice`
+  MODIFY `NoticeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
