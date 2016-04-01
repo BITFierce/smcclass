@@ -52,8 +52,6 @@ ALTER TABLE `notice`
 --
 -- Indexes for table `notice`
 --
-ALTER TABLE `notice`
-  ADD PRIMARY KEY (`NoticeID`);
 
 --
 -- 在导出的表使用AUTO_INCREMENT
