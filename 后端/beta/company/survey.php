@@ -25,7 +25,7 @@
 <script>
 function changePage()
 {
-	window.location.href="cover.html";
+	window.location.href="../cover.html";
 }
 function isInput()
 {

@@ -13,7 +13,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>山东省人力资源市场数据采集系统</title>
-		<link rel="stylesheet" href="css/Survey.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="../css/Survey.css" media="screen" type="text/css" />
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 <script>
 function changePage()
 {
-	window.location.href="cover.html";
+	window.location.href="../cover.html";
 }
 function isInput()
 {

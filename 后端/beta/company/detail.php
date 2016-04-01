@@ -38,7 +38,7 @@
 
 		echo "<script> alert ('您已完善过企业信息！');</script>";
 		//返回界面
-		echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=cover.html\"></head></html>";
+		echo "<html><head><meta http-equiv=\"Refresh\" content=\"0;url=../cover.html\"></head></html>";
 	}
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 

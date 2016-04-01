@@ -72,11 +72,11 @@
             mysql_select_db($database, $connect);
             $sql = "";
             if ($_POST["typ"] == "pro")
-              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（省用户）', 1, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（市用户）', 1, '".$_POST["title"]."', '".$_POST["heditor"]."');";
             else if ($_POST["typ"] == "ent")
-              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（省用户）', 2, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（市用户）', 2, '".$_POST["title"]."', '".$_POST["heditor"]."');";
             else if ($_POST["typ"] == "cit")
-              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（省用户）', 3, '".$_POST["title"]."', '".$_POST["heditor"]."');";
+              $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（市用户）', 3, '".$_POST["title"]."', '".$_POST["heditor"]."');";
 
             mysql_query($sql, $connect);
             echo "<script>alert(\"添加成功！\");</script>";
@@ -158,9 +158,9 @@
     </div>
     <input id="heditor" name="heditor" type="hidden" value="" />
     <div id="editor"></div>选择查看对象：
-    <input type="radio" name="typ" value="pro" checked="checked"/>省级
+    <input type="radio" name="typ" value="pro" />省级
     <input type="radio" name="typ" value="ent" />企业级
-    <input type="radio" name="typ" value="cit" />市级
+    <input type="radio" name="typ" value="cit" checked="checked" />市级
   
   </div>
   

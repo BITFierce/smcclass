@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/ReportDetail.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="../css/ReportDetail.css" media="screen" type="text/css" />
 </head>
 
 <body>

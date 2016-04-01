@@ -58,28 +58,29 @@
 				<li id="l0">
 					<div class="link" onclick="change(0)"><i class="fa fa-university"></i>企业管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u0">
-					<li><a href="sub/CompanyReference.html" target="inform">企业备案查询</a></li>
+					<li><a href="CompanyReference.html" target="inform">企业备案查询</a></li>
 					</ul>
 				</li>
 				<li id="l1">
 					<div class="link" onclick="change(1)"><i class="fa fa-table"></i>报表管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u1">
-					<li><a href="sub/AuditReport.html" target="inform">审核报表</a></li>
-					<li><a href="sub/DataGather.html" target="inform">数据汇总</a></li>
+					<li><a href="AuditReport.html" target="inform">审核报表</a></li>
+					<li><a href="DataGather.html" target="inform">数据汇总</a></li>
 					</ul>
 				</li>
 				<li id="l2">
 					<div class="link" onclick="change(2)"><i class="fa fa-bar-chart"></i>数据分析<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u2">
-					<li><a href="sub/sampling.html" target="inform">取样分析</a></li>
-					<li><a href="sub/compare.html" target="inform">对比分析</a></li>
-					<li><a href="sub/trend.html" target="inform">趋势分析</a></li>
+					<li><a href="sampling.html" target="inform">取样分析</a></li>
+					<li><a href="compare.html" target="inform">对比分析</a></li>
+					<li><a href="trend.html" target="inform">趋势分析</a></li>
 					</ul>
 				</li>
 				<li id="l3">
 					<div class="link" onclick="change(3)"><i class="fa fa-bell-o"></i>通知管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u3">
-					<li><a href="sub/CityNotice.html" target="inform">查看通知</a></li>
+					<li><a href="notice.php" target="inform">查看通知</a></li>
+					<li><a href="PublishNotice.php" target="inform">发布通知</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -88,7 +89,7 @@
 	</div>
 	
 	<div id="mainbody">
-		<iframe id="main" src="sub/cover.html" width="100%" height="100%" frameborder="0" name="inform" align="right"></iframe>
+		<iframe id="main" src="../cover.html" width="100%" height="100%" frameborder="0" name="inform" align="right"></iframe>
 	</div>
 	
 	<!--

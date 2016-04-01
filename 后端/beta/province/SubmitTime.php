@@ -12,10 +12,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="css/TimeAndUser.css" media="screen" type="text/css" />
-		<link rel="stylesheet" href="css/UserManage.css" type="text/css"/>
-		<script src="js/SubmitTimeAdmin/deletesubmittime.js" type="text/javascript"></script>
-		<script src="js/SubmitTimeAdmin/commit.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="../css/TimeAndUser.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="../css/UserManage.css" type="text/css"/>
+		<script src="../js/SubmitTimeAdmin/deletesubmittime.js" type="text/javascript"></script>
+		<script src="../js/SubmitTimeAdmin/commit.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			function add(point){
 				var table1=document.getElementById("mytable").insertRow(1);

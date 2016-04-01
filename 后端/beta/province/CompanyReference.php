@@ -6,10 +6,10 @@
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
-	<link rel="stylesheet" href="css/CompanyReference.css" media="screen" type="text/css" />
-	<script src="js/select.js"></script>
-	<script src="js/jquery-2.0.0.min.js"></script>
+	<link rel="stylesheet" href="../css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="../css/CompanyReference.css" media="screen" type="text/css" />
+	<script src="../js/select.js"></script>
+	<script src="../js/jquery-2.0.0.min.js"></script>
 	<script>
 		function todetail(point)
 		{

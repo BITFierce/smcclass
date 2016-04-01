@@ -149,11 +149,7 @@
 					echo "<span style=\"width:100px;\">"."市级"."</span>";
 				echo "<span style=\"width:200px;\">".$news["Author"]."</span>";
 				echo "<span style=\"width:100px;\">".$news["Time"]."</span>";
-				if (strstr($news["Author"],"省用户") != false)
-				{
-					echo "<a href=\"notice.php?nid=".$news["NoticeID"]."\">删除</a>";
-					echo "<a href=\"EditNotice.php?nid=".$news["NoticeID"]."\">修改</a>";
-				}
+				
 				echo "</div>";
 			}
 			mysql_free_result($result);
