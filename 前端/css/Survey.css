@@ -54,7 +54,7 @@ table, tr, td, th{
 	float:left;
 }
 
-#start, #now, #reason, #type, #reason1, #reason2, #reason3, #explain1, #explain2, #explain3{
+#time, #start, #now, #reason, #type, #reason1, #reason2, #reason3, #explain1, #explain2, #explain3{
 	width:400px;
 	height:31px;
 	margin-top:6px;

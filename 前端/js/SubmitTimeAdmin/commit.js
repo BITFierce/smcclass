@@ -5,16 +5,15 @@ function surechange(point)
 	var tdNodes=point.parentNode.parentNode.childNodes;
 	var inPutNode1=tdNodes[0].childNodes;//
 	var inPutNode2=tdNodes[1].childNodes;//
-	var inPutNode3=tdNodes[2].childNodes;//
-	var username=inPutNode1[0].value;//获得用户名
-	var userpassword=inPutNode3[0].value;
-	var usertype=inPutNode2[0].value;
+	var SurveyTIME=inPutNode1[0].value;//
+	var SurveyID=inPutNode1[0].id;
+	var Publisher=inPutNode2[0].value;
 	
 	//利用正则表达式判断修改内容是否合法
-	var reg = /^[0-9a-zA-Z]+$/
-	if((!reg.test(username))||(!reg.test(userpassword)))
+	var reg = /^[0-9]+$/
+	if((!reg.test(SurveyTIME)))
 	{
-		alert ("修改内容不合法！用户名或用户密码只能为字母或数字！");
+		alert ("修改内容不合法！调查期时间只能为数字！");
 		return false;
 	}
 	xmlHttp=GetXmlHttpRequest();
@@ -23,10 +22,10 @@ function surechange(point)
 		alert ("浏览器不支持HTTP REQUEST！");
 	}
 	
-	var url="surechangeuser.php"
-	url=url+"?username="+username;
-	url=url+"&userpassword="+userpassword;
-	url=url+"&usertype="+usertype;
+	var url="commitsubmittime.php"
+	url=url+"?SurveyTIME="+SurveyTIME;
+	url=url+"&Publisher="+Publisher;
+	url=url+"&SurveyID="+SurveyID;
 	url=url+"&sid="+Math.random();//末尾添加随机数 防止读取缓存
 	
 	xmlHttp.onreadystatechange=stateChanged;

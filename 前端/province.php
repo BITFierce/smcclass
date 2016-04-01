@@ -80,16 +80,15 @@
 				<li id="l3">
 					<div class="link" onclick="change(3)"><i class="fa fa-bell-o"></i>通知管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u3">
-					<li><a href="NoticeDetail.html" target="inform">查看通知</a></li>
-					<li><a href="PublishNotice.html" target="inform">发布通知</a></li>
+					<li><a href="notice.php" target="inform">查看通知</a></li>
+					<li><a href="PublishNotice.php" target="inform">发布通知</a></li>
 					</ul>
 				</li>
 				<li id="l4">
 					<div class="link" onclick="change(4)"><i class="fa fa-cogs"></i>系统管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u4">
-					<li><a href="SubmitTime.html" target="inform">上报时限</a></li>
+					<li><a href="SubmitTime.php" target="inform">上报时限</a></li>
 					<li><a href="UserManage.php" target="inform">用户管理</a></li>
-					<li><a href="CharcatorManage.html" target="inform">角色管理</a></li>
 					<li><a href="SystemMonitoring.html" target="inform">系统监控</a></li>
 					</ul>
 				</li>

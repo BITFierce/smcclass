@@ -17,12 +17,19 @@ h2 {
 }
 </style>
 </head>
-
-<h2>已提交的调查期数据：</h2>
-
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="css/CompanyReference.css" media="screen" type="text/css" />
+</head>
 <form id="demand" name="Query" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 	<br />
-	查询关键字:
+	调查期:
 	<input type="text" name="InputQuery" class='I'/>
 	<input type="submit" value="查询"/>
 </form>

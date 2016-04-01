@@ -68,7 +68,7 @@
 			<li id="l2">
 				<div class="link" onclick="change(2)"><i class="fa fa-bell-o"></i>通知管理<i class="fa fa-chevron-down"></i></div>
 				<ul class="submenu" id="u2">
-				<li><a href="inform.html" target="inform">查看通知</a></li>
+				<li><a href="inform.php" target="inform">查看通知</a></li>
 				</ul>
 			</li>
 		</ul>

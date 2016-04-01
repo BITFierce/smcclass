@@ -1,62 +1,70 @@
 ﻿<html>
-<body>
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-#Company {
-	background-color:#f6f6f6;
-	width:100%;
-}
-h2 {
-	color:#6f6f6f;
-}
-.I {
-	background-color:#ffffff;
-}
-#demand {
-	background-color:#f6f6f6;
-	height:60;
-	font-size:18;
-}
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="css/CompanyReference.css" media="screen" type="text/css" />
+	<script src="js/select.js"></script>
+	<script src="js/jquery-2.0.0.min.js"></script>
+	<script>
+		function todetail(point)
+		{
+			var username=point.id;
+			var companyName=point.childNodes[3].innerHTML;
+			//alert (companyName);
+			location.href="CompanyDetail.php?username="+username+"&companyName="+companyName;
+		}
+	</script>
 </head>
-
-<h2>已备案的企业：</h2>
-
-<form id="demand" name="Query" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-<br />
-查询条件：
-<select>
-	<option value="area">所属地区</option>
-	<option value="surveyTime">调查期</option>
-</select>
-<input type="text" name="InputQuery"  class='I'/>
-<input type="submit" value="查询"/>
-</form>
-<?php
-	echo "<table id='Company' border='1' cellpadding='20'>
-		 <tr>
-		 <th>企业名称</th>
-		 <th>组织机构代码</th>
-		 <th>所属地区</th>
-		 </tr>";
-	$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
-	//连接数据库
-	mysql_query("set names 'utf8'",$connect);
-	mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
-	$sql="select `CompanyName`, `CompanyNumber`, `CompanyAddr` from `company`";
-	$result = mysql_query($sql,$connect);
-	while($row=mysql_fetch_array($result))
-	{
-		echo "<tr>
-			<td><a href='CheckCompany.html' target='_blank'>".$row['CompanyName']."</a></td>
-			<td>".$row['CompanyNumber']."</td>
-			<td>".$row['CompanyAddr']."</td>
-			</tr>";
-	}
-	echo "</table>";
-	mysql_close($connect);
-?>	
+<body>
+	<div class="container">
+		
+		<div class="head">
+			<div></div>
+			<span>已备案企业</span>
+		</div>
+		<div>
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+			<select>
+				<option value="area">所属地区</option>
+				<option value="surveyTime">调查期</option>
+			</select>
+			<input type="text" name="InputQuery"/>
+			<input type="submit" value="查询"/>
+			</form>
+		</div>
+		<div class="title">
+						<span style="width:50px;">序号</span>
+						<span style="width:400px;">企业名称</span>
+						<span >机构代码</span>
+						<span >所属地区</span>
+					</div>'
+		<div class="content">
+			<?php
+				$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
+				//连接数据库
+				mysql_query("set names 'utf8'",$connect);
+				mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
+				$sql="select * from `company`";
+				$result = mysql_query($sql,$connect);
+				$rowint=1;
+				while($row=mysql_fetch_array($result))
+				{	
+					echo '<div class="cstyle" onclick="todetail(this)" id="'.$row['CompanyUsername'].'">
+							<span style="width:50px;" >'.$rowint.'</span>
+							<span style="width:400px;" id="'.$row['CompanyName'].'">'.$row['CompanyName'].'</span>
+							<span>'.$row['CompanyNumber'].'</span>
+							<span>'.$row['CompanyAddr'].'</span>
+						  </div>';
+					$rowint=$rowint+1;
+				}
+				mysql_close($connect);
+			?>
+		</div>
+	</div>	
 </body>
 </html>

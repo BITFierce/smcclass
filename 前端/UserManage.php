@@ -1,17 +1,8 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<style type="text/css">
-			h2 {
-				color:#484848;
-			}
-			input.text{
-				border-style:none;
-			}
-			b {
-				color:red;
-			}
-		</style>
+		<link rel="stylesheet" href="css/TimeAndUser.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="css/UserManage.css" type="text/css"/>
 		<script src="js/UserAdmin/deleteuser.js" type="text/javascript"></script>
 		<script src="js/UserAdmin/surechange.js" type="text/javascript"></script>
 		<script type="text/javascript">
@@ -24,14 +15,25 @@
 				var addRow3=table1.insertCell(2);
 				addRow3.innerHTML='<input type="text" class="text" value="输入用户密码"/>';
 				var addRow1=table1.insertCell(3);
-				addRow1.innerHTML='<input type="button" value="删除" onclick="deleteuser(this)"/> <input type="button" value="提交修改" onclick=" return surechange(this)"/>';
+				addRow1.innerHTML='<input id="buttonStyle" type="button" value="删除" onclick="deleteuser(this)"/> <input id="buttonStyle" type="button" value="提交修改" onclick=" return surechange(this)"/>';
 			}
 		</script>
+		<style>
+			#red{
+				color:red;
+			}
+			input{
+				border:0;
+			}
+		</style>
 	</head>
 	
 	<body>
-		<h2>用户信息管理：</h2>
-		<b color='red'>使用说明：点击删除按钮将直接删除对应用户，修改和新增用户时，完成编辑后需要点击提交修改！</span>
+		<div class="head">
+			<div></div>
+			<span>用户信息管理</span>
+		</div>
+		<b id="red">使用说明：点击删除按钮将直接删除对应用户，修改和新增用户时，完成编辑后需要点击提交修改！</b>
 		<form name="input" action="" method="post">
 			<table width="100%" id="mytable" border="1" cellpadding="10" id="time" style="table-layout:fixed">
 				<tr>
@@ -57,12 +59,12 @@
 						else
 							echo '<td><select> <option value="1">省用户</option><option value="3">市级用户</option><option value="2" selected="selected">企业用户</option></select></select></td>';
 						echo '<td><input type="text" class="text" value="'.$row['UserPassword'].'" align="center"/></td>
-							  <td><input type="button" value="删除" onclick="deleteuser(this)"/> <input type="button" value="提交修改" onclick="return surechange(this)"/></td>
+							  <td><input id="buttonStyle" type="button" value="删除" onclick="deleteuser(this)"/> <input id="buttonStyle" type="button" value="提交修改" onclick="return surechange(this)"/></td>
 							  </tr>';
 					}
 					mysql_close($connect);
 				?>
-				<tr><td colspan="4" align="center"><input type="button" value="增加用户" onclick="add()"></td></tr>
+				<tr><td colspan="4" align="center"><input id="buttonStyle" type="button" value="增加用户" onclick="add()"></td></tr>
 			</table>
 		</form>
 	</body>

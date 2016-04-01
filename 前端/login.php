@@ -22,6 +22,9 @@
 		.selected{
 			border-bottom:2px solid #dd433e;
 		}
+		body{
+			background-size:100%;
+		}
 	</style>
 </head>
 <script type="text/javascript">
@@ -52,7 +55,7 @@
 		}
 	}
 </script>
-<body>
+<body background="img/bg_login.png">
 <div id="login">
 	<div id="login-nav">
 		<ul>
