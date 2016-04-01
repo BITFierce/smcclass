@@ -14,6 +14,35 @@
 		mysql_select_db($database, $connect);
 ?>
 
+<script>
+	function proNotice()
+	{
+		$(".cstyle").each(function() {
+			if ($("span:eq(2)",this).text() == "企业级")
+			{
+				$(this).attr("style","display:none");
+			}
+			else
+			{
+				$(this).attr("style","display:block");
+			}
+		});
+	}
+	function entNotice()
+	{
+		$(".cstyle").each(function() {
+			if ($("span:eq(2)",this).text() == "省级")
+			{
+				$(this).attr("style","display:none");
+			}
+			else
+			{
+				$(this).attr("style","display:block");
+			}
+		});
+	}
+</script>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
@@ -57,20 +86,21 @@
 		
 		<div class="type">
 			<span>通知类型</span>
-			<a class="typea" href="#">省通知</a>
-			<a class="typea" href="#">企业通知</a>
+			<a class="typea" href="#" onclick="proNotice();">省通知</a>
+			<a class="typea" href="#" onclick="entNotice();">企业通知</a>
 		</div>
 		
 		<div class="title">
 			<span>序号</span>
 			<span style="width:300px;">通知标题</span>
+			<span style="width:100px;">类型</span>
 			<span style="width:100px;">发布时间</span>
 		</div>
 		
 		<div class="content">
 		<?php
 			
-			$sql = "select `NoticeID`, `Title`, `Time` from `notice`";
+			$sql = "select `NoticeID`, `Title`, `Author`,`Time` from `notice`";
 		    
 			$result = mysql_query($sql, $connect);
 			while ($news = mysql_fetch_assoc($result))
@@ -78,6 +108,10 @@
 				echo "<div class=\"cstyle\" onclick=\"location = 'NoticeDetail.php?nid=".$news["NoticeID"]."';\">";
 				echo "<span>".$news["NoticeID"]."</span>";
 				echo "<span style=\"width:300px;\">".$news["Title"]."</span>";
+				if ($news["Author"] == "1")
+					echo "<span style=\"width:100px;\">"."省级"."</span>";
+				else if ($news["Author"] == "2")
+					echo "<span style=\"width:100px;\">"."企业级"."</span>";
 				echo "<span style=\"width:100px;\">".$news["Time"]."</span>";
 				echo "<a href=\"notice.php?nid=".$news["NoticeID"]."\">删除</a>";
 				echo "<a href=\"EditNotice.php?nid=".$news["NoticeID"]."\">修改</a>";

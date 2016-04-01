@@ -43,7 +43,7 @@
 				}
 				else if ($res["Author"] == "2")
 				{
-					echo "市级";
+					echo "企业级";
 				}
 				echo "</span>
 				</div>
