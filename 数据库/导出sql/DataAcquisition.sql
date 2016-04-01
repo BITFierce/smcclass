@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : ankyo
+Source Server         : localhost_3306
 Source Server Version : 50710
 Source Host           : localhost:3306
-Source Database       : humanresource
+Source Database       : database
 
 Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-29 19:18:02
+Date: 2016-04-01 10:16:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,16 +28,12 @@ CREATE TABLE `dataacquisition` (
   `FirstReason` varchar(200) DEFAULT NULL,
   `SecondReason` varchar(200) DEFAULT NULL,
   `ThirdReason` varchar(200) DEFAULT NULL,
-  `CityCheck` varchar(20) NOT NULL,
-  `ProvinceCheck` varchar(20) NOT NULL,
+  `CheckLavel` int(11) NOT NULL COMMENT '0为 未提交 1 为提交 市未审核 2为 市审核通过 省未审核 3为省审核通过',
   `CollectionTime` date NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,
-  `SurveyPeriodID` int(11) NOT NULL,
   PRIMARY KEY (`InstitutionNumber`,`CollectionTime`),
-  KEY `FK_Company2` (`SurveyPeriodID`),
-  CONSTRAINT `FK_Company` FOREIGN KEY (`InstitutionNumber`) REFERENCES `company` (`CompanyNumber`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_Company2` FOREIGN KEY (`SurveyPeriodID`) REFERENCES `surveyperiod` (`SurveyID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `FK_Company` FOREIGN KEY (`InstitutionNumber`) REFERENCES `company` (`CompanyNumber`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
