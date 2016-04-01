@@ -1,0 +1,107 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/TimeAndUser.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="css/CharcatorManage.css" type="text/css" />
+		<script type="text/javascript">
+			function add(){
+				var table1=document.getElementById("mytable").insertRow(1);
+				var addRow1=table1.insertCell(0);
+				addRow1.innerHTML='<input type="text" id="id2" value="输入用户名" style="border-style:none"/>';
+				var addRow2=table1.insertCell(1);
+				addRow2.innerHTML='<select><option value="省用户">省用户</option><option value="企业用户">企业用户</option><option value="市用户">市用户</option></select>';
+				var addRow3=table1.insertCell(2);
+				addRow3.innerHTML='<input type="checkbox" name="功能1"/>功能1<br /><input type="checkbox" name="功能2"/>功能2';
+				var addRow1=table1.insertCell(3);
+				addRow1.innerHTML='<input id="buttonStyle" type="button" value="删除" onclick="del(this)"/> <input id="buttonStyle" type="button" value="确定" onclick="sure(this)"/>';
+			}
+	
+			function del(tt){
+				var table2=document.getElementById("mytable");
+				table2.deleteRow(tt.parentNode.parentNode.rowIndex)
+			}
+	
+			function sure(su){
+				var table4=document.getElementById("mytable").rows;
+				var rowss=su.parentNode.parentNode.rowIndex;
+				
+				var cellss2=table4[rowss].cells[0];
+				cellss2.innerHTML=document.getElementById("id2").value;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="head">
+			<div></div>
+			<span>用户角色管理</span>
+		</div>
+		<form name="input" action="" method="post">
+			<table width="100%" id="mytable" border="1" cellpadding="10" style="table-layout:fixed">
+				<tr>
+					<th>用户名</th>
+					<th>用户角色</th>
+					<th>功能</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td>ZTL</td>
+					<td>
+						<select id="CC1">
+							<option value="省用户">省用户</option>
+							<option value="企业用户">企业用户</option>
+							<option value="市用户">市用户</option>
+						</select>
+					</td>
+					<td>
+						<input type="checkbox" name="功能1"/>
+						功能1
+						<br />
+						<input type="checkbox" name="功能2"/>
+						功能2
+					</td>
+					<td><input id="buttonStyle" type="button" value="删除" onclick="del(this)"/> <input id="buttonStyle" type="button" value="确定" onclick="sure(this)"/></td>
+				</tr>
+				<tr>
+					<td>XMZ</td>
+					<td>
+						<select id="CC2">
+							<option value="企业用户">企业用户</option>
+							<option value="省用户">省用户</option>
+							<option value="市用户">市用户</option>
+						</select>
+					</td>
+					<td>
+						<input type="checkbox" name="功能1"/>
+						功能1
+						<br />
+						<input type="checkbox" name="功能2"/>
+						功能2
+					</td>
+					<td><input id="buttonStyle" type="button" value="删除" onclick="del(this)"/> <input id="buttonStyle" type="button" value="确定" onclick="sure(this)"/></td>
+				</tr>
+				<tr>
+					<td>TZJ</td>
+					<td>
+						<select id="CC3">
+							<option value="企业用户">企业用户</option>
+							<option value="省用户">省用户</option>
+							<option value="市用户">市用户</option>
+						</select>
+					</td>
+					<td>
+						<input type="checkbox" name="功能1"/>
+						功能1
+						<br />
+						<input type="checkbox" name="功能2"/>
+						功能2
+					</td>
+					<td><input id="buttonStyle" type="button" value="删除" onclick="del(this)"/> <input id="buttonStyle" type="button" value="确定" onclick="sure(this)"/></td>
+				</tr>
+				<tr>
+					<td colspan="4" align="center"><input id="buttonStyle" type="button" value="增加用户" onclick="add()"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
