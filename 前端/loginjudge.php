@@ -1,5 +1,13 @@
 ﻿<?php
-	session_start();
+	if (isset($_COOKIE["sesID"]))
+	{
+		session_id($_COOKIE["sesID"]);
+		session_start();
+	}
+	else {
+		session_start();
+		setcookie("sesID", session_id(), time() + 3600);
+	}
 	$root = "root";//数据库用户
 	$password = "root";//数据库用户密码
 	$database = "hrmdas";//数据库名
