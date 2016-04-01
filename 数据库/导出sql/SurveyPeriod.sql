@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : ankyo
+Source Server         : localhost_3306
 Source Server Version : 50710
 Source Host           : localhost:3306
-Source Database       : humanresource
+Source Database       : database
 
 Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-29 18:59:09
+Date: 2016-04-01 15:40:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,13 +20,10 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `surveyperiod`;
 CREATE TABLE `surveyperiod` (
-  `Publisher` varchar(20) NOT NULL,
   `SurveyID` int(11) NOT NULL AUTO_INCREMENT,
   `SurveyStartTime` date NOT NULL,
   `SurveyEndTime` date NOT NULL,
-  PRIMARY KEY (`SurveyID`,`Publisher`),
-  KEY `FK_SurveyPeriod` (`Publisher`),
-  CONSTRAINT `FK_SurveyPeriod` FOREIGN KEY (`Publisher`) REFERENCES `goverment` (`GovermentName`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`SurveyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
