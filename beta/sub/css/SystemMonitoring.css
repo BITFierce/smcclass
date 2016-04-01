@@ -1,0 +1,76 @@
+.query{
+	width:100%;
+	height:60px;
+	margin-top:10px;
+	float:left;
+	background-color:#f6f6f6;
+}
+
+.query span{
+	display:block;
+	float:left;
+	line-height:30px;
+	text-align:center;
+	margin:15px;
+	color:#666666;
+	margin-left:20px;
+	font-size:18px;
+}
+
+.query input{
+	margin-top:13px;
+	width:300px;
+	height:35px;
+	border-radius:3px;
+}
+
+.title span, .cstyle span{
+	width:100px;
+}
+
+#ensure{
+	height:30px;
+	border:solid 1px #666666;
+	border-radius:5px;
+	color:#000;
+	background-color:#f6f6f6;
+	cursor:pointer;
+}
+
+#CPUUsing{
+	float: left;
+}
+
+#HardDiskUsing{
+	float: left;
+}
+
+#MemoryUsing{
+	float: left;
+}
+
+#mytable{
+  font-family:"Microsoft YaHei", Arial, Helvetica, sans-serif;
+  width:100%;
+  border-collapse:collapse;
+}
+
+#mytable td, #customers th {
+  font-size:1em;
+  border:1px solid #6f6f6f;
+  padding:20px 20px 20px 20px;
+}
+
+#mytable th {
+  font-size:1.1em;
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#9c9c9e;
+  color:#ffffff;
+}
+
+#mytable tr.alt td {
+  color:#000000;
+  background-color:#EAF2D3;
+}
