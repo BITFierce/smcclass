@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-04-01 15:39:47
+Date: 2016-04-01 15:59:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `UserID` varchar(20) NOT NULL,
+  `UserID` int(20) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(20) NOT NULL,
   `UserPassword` varchar(20) NOT NULL,
   `UserType` varchar(20) NOT NULL,
