@@ -12,11 +12,11 @@
 <html>
 	<head>
 		<title>山东省人力资源市场数据采集系统</title>
-		<link rel="stylesheet" href="css/Detail.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="/css/Detail.css" media="screen" type="text/css" />
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-		<script type="text/javascript" src="js/address.js"></script>
+		<script type="text/javascript" src="/js/address.js"></script>
 	</head>
 <body>
 
