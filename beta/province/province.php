@@ -65,7 +65,7 @@
 				<li id="l1">
 					<div class="link" onclick="change(1)"><i class="fa fa-table"></i>报表管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u1">
-					<li><a href="ReportDetail.html" target="inform">审核报表</a></li>
+					<li><a href="report.php" target="inform">审核报表</a></li>
 					<li><a href="DataGather.html" target="inform">数据汇总</a></li>
 					</ul>
 				</li>
