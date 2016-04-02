@@ -9,6 +9,18 @@
 		session_start();
 		setcookie("sesID", session_id(), time() + 3600);
 	}
+	if (isset($_GET["md"]))
+	{
+		if ($_GET["md"]=="e")
+		{
+			if (isset($_SESSION["userName"])) unset($_SESSION["userName"]);
+			if (isset($_SESSION["userType"])) unset($_SESSION["userType"]);
+			if (isset($_SESSION["errorType"])) unset($_SESSION["errorType"]);
+			if (isset($_SESSION["username"])) unset($_SESSION["username"]);
+			if (isset($_SESSION["usertype"])) unset($_SESSION["usertype"]);
+			if (isset($_SESSION["errortype"])) unset($_SESSION["errortype"]);
+		}
+	}
 ?>
 <script type="text/javascript">
 	function isInput()
@@ -50,8 +62,8 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet"  type="text/css" href="sub/css/login.css" />
-<script language="javascript"  charset="utf-8" src="sub/js/jquery-2.0.0.min.js"></script>
+<link rel="stylesheet"  type="text/css" href="css/login.css" />
+<script language="javascript"  charset="utf-8" src="js/jquery-2.0.0.min.js"></script>
 <title>山东省人力资源市场数据采集系统</title>
 <style type="text/css">
 	.selected{
