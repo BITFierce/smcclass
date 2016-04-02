@@ -5,8 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/AuditReport.css" media="screen" type="text/css" />
-	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="../css/AuditReport.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="../css/notice.css" media="screen" type="text/css" />
 </head>
 
 <body>
@@ -33,31 +33,31 @@
 		</div>
 		
 		<div class="content">
-			<div class="cstyle" onclick="location='ReportDetail.html'">
+			<div class="cstyle" onclick="location='ReportDetail.php'">
 				<span>1</span>
 				<span style="width:300px;">企业名</span>
 				<span style="width:100px;">2016年3月</span>
 				<span style="width:100px;">未审核</span>
 			</div>
-			<div class="cstyle" onclick="location='ReportDetail.html'">
+			<div class="cstyle" onclick="location='ReportDetail.php'">
 				<span>2</span>
 				<span style="width:300px;">企业名</span>
 				<span style="width:100px;">2016年3月</span>
 				<span style="width:100px;">审核通过</span>
 			</div>
-			<div class="cstyle" onclick="location='ReportDetail.html'">
+			<div class="cstyle" onclick="location='ReportDetail.php'">
 				<span>3</span>
 				<span style="width:300px;">企业名</span>
 				<span style="width:100px;">2016年3月</span>
 				<span style="width:100px;">退回修改</span>
 			</div>
-			<div class="cstyle" onclick="location='ReportDetail.html'">
+			<div class="cstyle" onclick="location='ReportDetail.php'">
 				<span>4</span>
 				<span style="width:300px;">企业名</span>
 				<span style="width:100px;">2016年3月</span>
 				<span style="width:100px;">上报</span>
 			</div>
-			<div class="cstyle" onclick="location='ReportDetail.html'">
+			<div class="cstyle" onclick="location='ReportDetail.php'">
 				<span>5</span>
 				<span style="width:300px;">企业名</span>
 				<span style="width:100px;">2016年3月</span>
