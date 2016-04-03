@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 						$result=mysql_query($sql,$connect);
 						while($row=mysql_fetch_array($result))
 						{
-							echo "<option value='".$row['SurveyID']."'>".$row['SurveyTIME']."-".$row['Publisher']."</option>";
+							echo "<option value='".$row['SurveyID']."'>".$row['SurveyStartTime']."-".$row['Publisher']."</option>";
 						}
 						mysql_close($connect);
 					?>

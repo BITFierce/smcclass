@@ -48,7 +48,7 @@
 						<span >填报时间</span>
 						<span >市级审核</span>
 						<span >省级审核</span>
-					</div>'
+					</div>
 		<div class="content">
 			<?php
 				$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
@@ -71,7 +71,7 @@
 					$sql1 = "select * from `surveyperiod` where SurveyID = ".$SurveyPeriodID.";";
 					$result1 = mysql_query($sql1,$connect);
 					$row1 = mysql_fetch_array($result1);
-					$SurveyPeriod = $row1['Publisher']."-".$row1['SurveyTIME'];
+					$SurveyPeriod = $row1['Publisher']."-".$row1['SurveyStartTime'];
 					echo '<div class="cstyle" onclick="todetail(this)" id="'.$SurveyPeriod.'">
 							<span style="width:50px;" id="'.$row['InstitutionNumber'].'">'.$rowint.'</span>
 							<span style="width:400px;" id="'.$row['SurveyPeriodID'].'">'.$SurveyPeriod.'</span>
