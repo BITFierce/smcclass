@@ -9,9 +9,9 @@
 	$sql="delete from `surveyperiod` where SurveyID = '".$SurveyID."';";
 	$result = mysql_query($sql,$connect);
 	if($SurveyID=='')
-		$sql="insert into `surveyperiod` (Publisher, SurveyTIME) values('".$Publisher."', '".$SurveyTIME."');";
+		$sql="insert into `surveyperiod` (Publisher, SurveyStartTime) values('".$Publisher."', '".$SurveyTIME."');";
 	else
-		$sql="insert into `surveyperiod` (Publisher, SurveyID, SurveyTIME) values('".$Publisher."', '".$SurveyID."', '".$SurveyTIME."');";
+		$sql="insert into `surveyperiod` (Publisher, SurveyID, SurveyStartTime) values('".$Publisher."', '".$SurveyID."', '".$SurveyTIME."');";
 	$result = mysql_query($sql,$connect);
 	if($result=='true')
 		echo "true";
