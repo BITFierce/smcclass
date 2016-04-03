@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/highcharts.js"></script>
 	<script type="text/javascript" src="js/exporting.js"></script>
-	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
 	<link rel="stylesheet" href="css/compare.css" media="screen" type="text/css" />
 	<script>
 		$(function () {
@@ -125,6 +124,8 @@
 					name: "行业",
 					data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
 		
+				}, {
+					name: ""
 				}]
 			});
 		});
@@ -163,17 +164,42 @@
 		</div>
 		
 		<div class="title">
-			<span style="width: 8%;">输入调查期</span>
-			<span style="width: 16%;">
-				<input type="text" id="survey1"></input>
-			</span>
-			<span style="width: 1%;">和</span>
-			<span style="width:16%;">
-				<input type="text" id="survey2"></input>
-			</span>
-			<span>
-				<input type="submit" id="ensure" value="确定"></input>
-			</span>
+			<form name="chooseSurvey" action="" method="post">
+				<span>选择调查期</span>
+				<span>
+					<select name="survey1" style="width: 100px;">
+						<option value="调查期1">调查期1</option>
+					</select>
+				</span>
+				<span style="width: 20px;">和</span>
+				<span>
+					<select name="survey2" style="width: 100px;">
+						<option value="调查期1">调查期1</option>
+					</select>
+				</span>
+				<span style="width: 20px;"></span>
+				<span>选择分析方式:</span>
+				<span>
+					<select name="analysis" style="width: 100px;">
+						<option value="1">地区</option>
+						<option value="2">企业性质</option>
+						<option value="3">行业</option>
+					</select>
+				</span>
+				<span>选择分析指标:</span>
+				<span>
+					<select name="analysisWay" style="width: 100px;">
+						<option value="1">企业总数</option>
+						<option value="1">建档期总岗位数</option>
+						<option value="1">调查期总岗位数</option>
+						<option value="1">岗位变化总数</option>
+						<option value="1">岗位减少总数</option>
+					</select>
+				</span>
+				<span>
+					<input type="submit" id="ensure" value="确定"></input>
+				</span>
+			</form>
 		</div>
 
 		<div id="pictureAndtable" style="display: block;">
