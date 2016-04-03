@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-29 10:38:54
+Date: 2016-04-01 16:35:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `dataacquisition`;
 CREATE TABLE `dataacquisition` (
-  `InstitutionNumber` int NOT NULL,
+  `InstitutionNumber` varchar(20) NOT NULL,
   `FilingPeriodEmploymentNumber` int(11) NOT NULL,
   `SurveyPeriodEmploymentNumber` int(11) NOT NULL,
   `OtherReason` varchar(200) DEFAULT NULL,
@@ -28,8 +28,7 @@ CREATE TABLE `dataacquisition` (
   `FirstReason` varchar(200) DEFAULT NULL,
   `SecondReason` varchar(200) DEFAULT NULL,
   `ThirdReason` varchar(200) DEFAULT NULL,
-  `CityCheck` varchar(20) NOT NULL,
-  `ProvinceCheck` varchar(20) NOT NULL,
+  `CheckLevel` int(11) NOT NULL COMMENT '0为 未提交 1 为提交 市未审核 2为 市审核通过 省未审核 3为省审核通过',
   `CollectionTime` date NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,

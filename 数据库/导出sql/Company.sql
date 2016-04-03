@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-03-27 16:17:16
+Date: 2016-04-01 15:40:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,8 +21,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `CompanyName` varchar(20) NOT NULL,
-  `CompanyNumber` int NOT NULL,
-  `CompanyUserID` varchar(20) NOT NULL,
+  `CompanyNumber` varchar(20) NOT NULL,
+  `CompanyUserName` varchar(20) NOT NULL,
   `CompanyAddr` varchar(20) NOT NULL,
   `CompanyProperty` varchar(5) NOT NULL,
   `CompanyIndustry` varchar(20) NOT NULL,
@@ -36,7 +36,8 @@ CREATE TABLE `company` (
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`CompanyNumber`),
-  CONSTRAINT `FK_CompanyName` FOREIGN KEY (`CompanyNumber`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `FK_CompanyName` (`CompanyUserName`),
+  CONSTRAINT `FK_CompanyName` FOREIGN KEY (`CompanyUserName`) REFERENCES `user` (`UserName`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
