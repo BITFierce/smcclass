@@ -1,4 +1,5 @@
-﻿-- 定义创建省用户存储过程
+﻿
+-- 定义创建省用户存储过程
 -- 参数为 UserName, UserPassword, UserType, GovermentNumber, GovermentName 
 -- 共五个参数
 DROP PROCEDURE IF EXISTS `CreGovUser`;
