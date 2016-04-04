@@ -50,7 +50,7 @@
 		</a></span>
 	</div>
 	
-	<a style="text-decoration:none; color:#fff;" href="../login.php?md=e"><div id="exit">退出登录</div></a>
+	<a style="text-decoration:none; color:#fff;" href="../login.php"><div id="exit">退出登录</div></a>
 
 	<div id="menu">
 		
@@ -65,16 +65,16 @@
 				<li id="l1">
 					<div class="link" onclick="change(1)"><i class="fa fa-table"></i>报表管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u1">
-					<li><a href="report.php" target="inform">审核报表</a></li>
-					<li><a href="DataGather.php" target="inform">数据汇总</a></li>
+					<li><a href="ReportDetail.html" target="inform">审核报表</a></li>
+					<li><a href="DataGather.html" target="inform">数据汇总</a></li>
 					</ul>
 				</li>
 				<li id="l2">
 					<div class="link" onclick="change(2)"><i class="fa fa-bar-chart"></i>数据分析<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u2">
-					<li><a href="sampling.php" target="inform">取样分析</a></li>
-					<li><a href="compare.php" target="inform">对比分析</a></li>
-					<li><a href="trend.php" target="inform">趋势分析</a></li>
+					<li><a href="sampling.html" target="inform">取样分析</a></li>
+					<li><a href="compare.html" target="inform">对比分析</a></li>
+					<li><a href="trend.html" target="inform">趋势分析</a></li>
 					</ul>
 				</li>
 				<li id="l3">

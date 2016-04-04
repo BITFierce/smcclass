@@ -46,7 +46,7 @@
 		</a></span>
 	</div>
 	
-	<a style="text-decoration:none; color:#fff;" href="../login.php?md=e"><div id="exit">退出登录</div></a>
+	<a style="text-decoration:none; color:#fff;" href="../login.php"><div id="exit">退出登录</div></a>
 
 	<div id="menu">
 

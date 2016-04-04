@@ -63,7 +63,7 @@
 					$result = mysql_query($sql,$connect);
 					while($row=mysql_fetch_array($result))
 					{
-						echo '<tr><td><input type="text" id="'.$row['SurveyID'].'" class="text" value = "'.$row['SurveyStartTime'].'" align="center"/></td>';
+						echo '<tr><td><input type="text" id="'.$row['SurveyID'].'" class="text" value = "'.$row['SurveyTIME'].'" align="center"/></td>';
 						echo '<td><input type="text" class="text" value = "'.$row['Publisher'].'" align="center"/></td>';
 						echo '<td><input id="buttonStyle" type="button" value="删除" onclick="deleteuser(this)"/> <input id="buttonStyle" type="button" value="提交修改" onclick="return surechange(this)"/></td>
 							  </tr>';

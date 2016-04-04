@@ -83,9 +83,8 @@
             else if ($_POST["typ"] == "cit")
               $sql = "update `notice` set `Title` = '".$_POST["title"]."', `Text` = '".$_POST["heditor"]."', `Type`=3 where `NoticeID` = ".$_GET["nid"].";";
 
-            if (mysql_query($sql, $connect))
-              echo "<script>alert(\"修改成功！\");</script>";
-            else echo "<script>alert(\"修改失败！\");</script>";
+            mysql_query($sql, $connect);
+            echo "<script>alert(\"修改成功！\");</script>";
             echo "<script>location=\"notice.php\"</script>";
         }
         catch (Exception $e)

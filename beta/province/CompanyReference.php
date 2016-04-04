@@ -18,10 +18,6 @@
 			//alert (companyName);
 			location.href="CompanyDetail.php?username="+username+"&companyName="+companyName;
 		}
-		function refresh()
-		{
-			 window.location.href="CompanyReference.php";
-		}
 	</script>
 </head>
 <body>
@@ -32,59 +28,43 @@
 			<span>已备案企业</span>
 		</div>
 		<div>
-			
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+			<select>
+				<option value="area">所属地区</option>
+				<option value="surveyTime">调查期</option>
+			</select>
+			<input type="text" name="InputQuery"/>
 			<div class="query">
 			<span>查询</span>
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 			<input type="text" id="query" name="query"/>
-			<input type="submit" class="ensure" value="确定"></input>
-			<input type="button" class="ensure" value="显示全部" onclick="refresh()"></input>
-			</form>
-			</div>
+			<input type="button" id="ensure" value="确定"></input>
+			<input type="button" id="ensure" value="显示全部"></input>
+		</div>
 		</div>
 		<div class="title">
 						<span style="width:50px;">序号</span>
 						<span style="width:400px;">企业名称</span>
 						<span >机构代码</span>
 						<span >所属地区</span>
-					</div>
+					</div>'
 		<div class="content">
 			<?php
 				$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
 				//连接数据库
 				mysql_query("set names 'utf8'",$connect);
 				mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
-				if ($_SERVER["REQUEST_METHOD"] == "POST"&&$_POST['query']!='') 
-				{
-					$sql="select * from `company` where CompanyName like '%".$_POST['query']."%';";
-					$result = mysql_query($sql,$connect);
-					$rowint=1;
-					while($row=mysql_fetch_array($result))
-					{	
-						echo '<div class="cstyle" onclick="todetail(this)" id="'.$row['CompanyUsername'].'">
-								<span style="width:50px;" >'.$rowint.'</span>
-								<span style="width:400px;" id="'.$row['CompanyName'].'">'.$row['CompanyName'].'</span>
-								<span>'.$row['CompanyNumber'].'</span>
-								<span>'.$row['CompanyAddr'].'</span>
-							</div>';
-						$rowint=$rowint+1;
-					}
-				}
-				else
-				{
-					$sql="select * from `company`";
-					$result = mysql_query($sql,$connect);
-					$rowint=1;
-					while($row=mysql_fetch_array($result))
-					{	
-						echo '<div class="cstyle" onclick="todetail(this)" id="'.$row['CompanyUsername'].'">
-								<span style="width:50px;" >'.$rowint.'</span>
-								<span style="width:400px;" id="'.$row['CompanyName'].'">'.$row['CompanyName'].'</span>
-								<span>'.$row['CompanyNumber'].'</span>
-								<span>'.$row['CompanyAddr'].'</span>
-							</div>';
-						$rowint=$rowint+1;
-					}
+				$sql="select * from `company`";
+				$result = mysql_query($sql,$connect);
+				$rowint=1;
+				while($row=mysql_fetch_array($result))
+				{	
+					echo '<div class="cstyle" onclick="todetail(this)" id="'.$row['CompanyUsername'].'">
+							<span style="width:50px;" >'.$rowint.'</span>
+							<span style="width:400px;" id="'.$row['CompanyName'].'">'.$row['CompanyName'].'</span>
+							<span>'.$row['CompanyNumber'].'</span>
+							<span>'.$row['CompanyAddr'].'</span>
+						  </div>';
+					$rowint=$rowint+1;
 				}
 				mysql_close($connect);
 			?>
