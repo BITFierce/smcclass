@@ -1,4 +1,15 @@
-﻿<html>
+﻿<?php
+	if (isset($_COOKIE["sesID"]))
+	{
+		session_id($_COOKIE["sesID"]);
+		session_start();
+	}
+	else {
+		session_start();
+		setcookie("sesID", session_id(), time() + 3600);
+	}
+?>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
@@ -47,16 +58,20 @@
 						<span style="width:400px;">企业名称</span>
 						<span >机构代码</span>
 						<span >所属地区</span>
-					</div>
+					</div>'
 		<div class="content">
 			<?php
 				$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
 				//连接数据库
 				mysql_query("set names 'utf8'",$connect);
 				mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
+				$sql="select * from `citygoverment` where CityGovermentUsername = '".$_SESSION['userName']."';";
+				$result = mysql_query($sql,$connect);
+				$row=mysql_fetch_array($result);
+				$CityGovermentName=$row['CityGovermentName'];
 				if ($_SERVER["REQUEST_METHOD"] == "POST"&&$_POST['query']!='') 
 				{
-					$sql="select * from `company` where CompanyName like '%".$_POST['query']."%';";
+					$sql="select * from `company` where CompanyName like '%".$_POST['query']."%' and CompanyAddr like '".$CityGovermentName."%';";
 					$result = mysql_query($sql,$connect);
 					$rowint=1;
 					while($row=mysql_fetch_array($result))
@@ -72,7 +87,7 @@
 				}
 				else
 				{
-					$sql="select * from `company`";
+					$sql="select * from `company` where CompanyAddr like '".$CityGovermentName."%';";
 					$result = mysql_query($sql,$connect);
 					$rowint=1;
 					while($row=mysql_fetch_array($result))

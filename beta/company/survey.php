@@ -13,7 +13,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>山东省人力资源市场数据采集系统</title>
-		<link rel="stylesheet" href="css/Survey.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="../css/Survey.css" media="screen" type="text/css" />
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 						$result=mysql_query($sql,$connect);
 						while($row=mysql_fetch_array($result))
 						{
-							echo "<option value='".$row['SurveyID']."'>".$row['SurveyTIME']."-".$row['Publisher']."</option>";
+							echo "<option value='".$row['SurveyID']."'>".$row['SurveyStartTime']."-".$row['Publisher']."</option>";
 						}
 						mysql_close($connect);
 					?>

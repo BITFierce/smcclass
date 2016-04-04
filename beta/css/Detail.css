@@ -55,7 +55,7 @@ table, tr, td, th{
 	float:left;
 }
 
-#area, #organization, #name, #nature1, #nature2, #nature3, #industry1, #industry2, #work, #linker, #address, #code, #email{
+#area, #organization, #name, #nature1, #nature2, #nature3, #industry1, #industry2, #work, #linker, #address, #code, #Fax, #PhoneNumber, #email{
 	width:250px;
 	height:31px;
 	margin-top:6px;

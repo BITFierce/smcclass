@@ -8,11 +8,11 @@
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="js/highcharts.js"></script>
-	<script type="text/javascript" src="js/exporting.js"></script>
-	<link rel="stylesheet" href="css/notice.css" media="screen" type="text/css" />
-	<link rel="stylesheet" href="css/DataGather.css" media="screen" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="../js/highcharts.js"></script>
+	<script type="text/javascript" src="../js/exporting.js"></script>
+	<link rel="stylesheet" href="../css/notice.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="../css/DataGather.css" media="screen" type="text/css" />
 	<script>
 		$(function () {
 			$("#picture").highcharts({
@@ -48,7 +48,7 @@
 				},
 				series: [{
 					name: "岗位变动数量占比",
-					data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+					data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 90.3, 18.3, 13.9, 9.6]
 				}]
 			});
 		});

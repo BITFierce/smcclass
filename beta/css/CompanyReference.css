@@ -17,7 +17,7 @@
 	font-size:18px;
 }
 
-.query input{
+#query {
 	margin-top:13px;
 	width:300px;
 	height:35px;
@@ -44,4 +44,11 @@
 	color:#db4544;
 }
 
-
+.ensure{
+	height:30px;
+	border:solid 1px #666666;
+	border-radius:5px;
+	color:#000;
+	background-color:#f6f6f6;
+	cursor:pointer;
+}

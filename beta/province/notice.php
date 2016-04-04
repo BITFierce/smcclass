@@ -1,15 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php
-	if (isset($_COOKIE["sesID"]))
-	{
-		session_id($_COOKIE["sesID"]);
-		session_start();
-	}
-	else {
-		session_start();
-		setcookie("sesID", session_id(), time() + 3600);
-	}
-?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <?php
@@ -86,17 +76,10 @@
 	{
 		try
 		{
-			$root = "root";//数据库用户
-			$password = "root";//数据库用户密码
-			$database = "hrmdas";//数据库名
-			$databaseURL = "localhost:3306";//数据库地址
-
-			$connect = mysql_connect($databaseURL, $root, $password);
-			mysql_query("set names 'utf8'",$connect);
-			mysql_select_db($database, $connect);
 			$sql = "delete from `notice` where `NoticeID`=".$_GET["nid"].";";
-			$result = mysql_query($sql, $connect);
-            echo "<script>alert(\"删除成功！\");</script>";
+			if (mysql_query($sql, $connect))
+    	        echo "<script>alert(\"删除成功！\");</script>";
+    	    else echo "<script>alert(\"删除失败！\");</script>";
             echo "<script>location=\"notice.php\"</script>";
 		}
 		catch (Exception $e)

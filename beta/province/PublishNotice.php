@@ -78,9 +78,10 @@
             else if ($_POST["typ"] == "cit")
               $sql = "insert into `notice` (`Author`, `Type`, `Title`, `Text`) values ('".$_SESSION["userName"]."（省用户）', 3, '".$_POST["title"]."', '".$_POST["heditor"]."');";
 
-            mysql_query($sql, $connect);
-            echo "<script>alert(\"添加成功！\");</script>";
-            echo "<script>location=\"notice.php\"</script>";
+            if (mysql_query($sql, $connect))
+              echo "<script>alert(\"添加成功！\");</script>";
+            else echo "<script>alert(\"添加失败！\");</script>";
+            //echo "<script>location=\"notice.php\"</script>";
         }
         catch (Exception $e)
         {
