@@ -97,15 +97,15 @@ th input:focus{
 	cursor:pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+#login{
+	position: absolute;
+	height:350px;
+	width:390px;
+	margin:-210px -235px;
+	top:50%;
+	left:50%;
+	padding:20px;
+	padding-top:30px;
+	border-radius:10px;
+	background-color: rgba(255,255,255,0.5);
+}
