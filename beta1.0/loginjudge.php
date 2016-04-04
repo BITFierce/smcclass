@@ -14,8 +14,12 @@
 	$databaseURL = "localhost:3306";//数据库地址
 	$sql = "select * from `user` where `UserName` = \"".$_POST["PID"]."\";";
     
-	$connect = mysql_connect($databaseURL, $root, $password);
-	mysql_select_db($database, $connect);
+	include 'sql/sqlname.php';
+	$connect=mysql_connect($sql_host,$sql_user,$sql_pass);
+	if (!$connect)
+		die('Could not connect: ' . mysql_error());
+	mysql_select_db($sql_name, $connect);
+
 	$result = mysql_query($sql, $connect);
 	$news = mysql_fetch_assoc($result);
 	mysql_free_result($result);

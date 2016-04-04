@@ -15,14 +15,13 @@
 <?php
 	try
 	{
-		$root = "root";//数据库用户
-		$password = "root";//数据库用户密码
-		$database = "hrmdas";//数据库名
-		$databaseURL = "localhost:3306";//数据库地址
+		include '../sql/sqlname.php';
+        $connect=mysql_connect($sql_host,$sql_user,$sql_pass);
+        if (!$connect)
+          die('Could not connect: ' . mysql_error());
+        mysql_select_db($sql_name, $connect);
 
-		$connect = mysql_connect($databaseURL, $root, $password);
 		mysql_query("set names 'utf8'",$connect);
-		mysql_select_db($database, $connect);
 ?>
 
 <script>
