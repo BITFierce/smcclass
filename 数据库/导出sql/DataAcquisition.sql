@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
@@ -30,10 +30,12 @@ CREATE TABLE `dataacquisition` (
   `ThirdReason` varchar(200) DEFAULT NULL,
   `CheckLevel` int(11) NOT NULL COMMENT '0为 未提交 1 为提交 市未审核 2为 市审核通过 省未审核 3为省审核通过',
   `CollectionTime` date NOT NULL,
+  `SurveyPeriodID` INT NOT NULL,
   `spare1` varchar(20) DEFAULT NULL,
   `spare2` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`InstitutionNumber`,`CollectionTime`),
-  CONSTRAINT `FK_Company` FOREIGN KEY (`InstitutionNumber`) REFERENCES `company` (`CompanyNumber`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `FK_Company` FOREIGN KEY (`InstitutionNumber`) REFERENCES `company` (`CompanyNumber`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_SurveyPeriodID` FOREIGN KEY (`SurveyPeriodID`) REFERENCES `surveyperiod` (`SurveyID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

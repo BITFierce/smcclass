@@ -21,9 +21,11 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `surveyperiod`;
 CREATE TABLE `surveyperiod` (
   `SurveyID` int(11) NOT NULL AUTO_INCREMENT,
+  `Publisher` varchar(20) NOT NULL,
   `SurveyStartTime` date NOT NULL,
-  `SurveyEndTime` date NOT NULL,
-  PRIMARY KEY (`SurveyID`)
+  `SurveyEndTime` date,
+  PRIMARY KEY (`SurveyID`),
+  CONSTRAINT `FK_Publisher` FOREIGN KEY (`Publisher`) REFERENCES `Goverment` (`GovermentUsername`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
