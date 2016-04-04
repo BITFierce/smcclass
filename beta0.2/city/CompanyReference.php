@@ -58,7 +58,7 @@
 						<span style="width:400px;">企业名称</span>
 						<span >机构代码</span>
 						<span >所属地区</span>
-					</div>'
+					</div>
 		<div class="content">
 			<?php
 				$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
