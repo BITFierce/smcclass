@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	if (isset($_COOKIE["sesID"]))
 	{
 		session_id($_COOKIE["sesID"]);

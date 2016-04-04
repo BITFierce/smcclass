@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
   if (isset($_COOKIE["sesID"]))
   {
@@ -10,6 +9,7 @@
     setcookie("sesID", session_id(), time() + 3600);
   }
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
