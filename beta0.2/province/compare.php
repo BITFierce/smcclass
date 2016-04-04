@@ -39,7 +39,11 @@
 		if(array_key_exists('mode', $_GET))
 			$mode=intval($_GET['mode']);
 		
-		$modestr=($mode==1?'CompanyAddr':$mode==2?'CompanyProperty':'CompanyIndustry');
+		echo '<script>var mode='.$mode.'</script>';
+		
+		$modestr=($mode==1?'CompanyAddr':($mode==2?'CompanyProperty':'CompanyIndustry'));
+		
+		echo '<script>var mode='.$modestr.'</script>';
 		
 		$type=1;
 		if(array_key_exists('type', $_GET))
@@ -50,9 +54,9 @@
 		else if($type==3)$data1[]=$row['SurveyNum'];
 		else $data1[]=$row['FileNum']-$row['SurveyNum'];
 		
-		$result=mysql_query('SELECT * FROM ((SELECT '.$modestr.',count(DISTINCT CompanyNumber) AS CompanyNum,sum(FilingPeriodEmploymentNumber) AS FileNum,sum(SurveyPeriodEmploymentNumber) AS SurveyNum '.
+		$result=mysql_query('SELECT * FROM ((SELECT '.$modestr.',count(DISTINCT CompanyNumber) AS CompanyNum1,sum(FilingPeriodEmploymentNumber) AS FileNum1,sum(SurveyPeriodEmploymentNumber) AS SurveyNum1 '.
 							'FROM company INNER JOIN dataacquisition WHERE SurveyPeriodID=1 GROUP BY '.$modestr.') AS s1 '. 
-							'INNER JOIN (SELECT '.$modestr.',count(DISTINCT CompanyNumber) AS CompanyNum,sum(FilingPeriodEmploymentNumber) AS FileNum,sum(SurveyPeriodEmploymentNumber) AS SurveyNum '.
+							'INNER JOIN (SELECT '.$modestr.',count(DISTINCT CompanyNumber) AS CompanyNum2,sum(FilingPeriodEmploymentNumber) AS FileNum2,sum(SurveyPeriodEmploymentNumber) AS SurveyNum2 '.
 							'FROM company INNER JOIN dataacquisition WHERE SurveyPeriodID=1 GROUP BY '.$modestr.') AS s2 ON s1.'.$modestr.'=s2.'.$modestr.')');
 		
 		$data1=array();
@@ -61,14 +65,14 @@
 		while($row=mysql_fetch_array($result))
 		{
 			$names[]=$row[$modestr];
-			if($type==1)$data1[]=$row['s1.CompanyNum'];
-			else if($type==2)$data1[]=$row['s1.FileNum'];
-			else if($type==3)$data1[]=$row['s1.SurveyNum'];
-			else $data1[]=$row['s1.FileNum']-$row['s1.SurveyNum'];
-			if($type==1)$data2[]=$row['s2.CompanyNum'];
-			else if($type==2)$data2[]=$row['s2.FileNum'];
-			else if($type==3)$data2[]=$row['s2.SurveyNum'];
-			else $data2[]=$row['s2.FileNum']-$row['s2.SurveyNum'];
+			if($type==1)$data1[]=$row['CompanyNum1'];
+			else if($type==2)$data1[]=$row['FileNum1'];
+			else if($type==3)$data1[]=$row['SurveyNum1'];
+			else $data1[]=$row['FileNum1']-$row['SurveyNum1'];
+			if($type==1)$data2[]=$row['CompanyNum2'];
+			else if($type==2)$data2[]=$row['FileNum2'];
+			else if($type==3)$data2[]=$row['SurveyNum2'];
+			else $data2[]=$row['FileNum2']-$row['SurveyNum2'];
 		}
 	
 	echo '<script>
@@ -181,7 +185,7 @@
 				<form name="chooseSurvey" action="" method="get">
 					<span>选择调查期</span>
 					<span>
-						<select name="s1" style="width: 100px;">';
+						<select name="s1" style="width: 110px;">';
 							foreach($surveys as $key => $value)
 								echo '<option value="'.$key.'">'.$value.'</option>';
 							echo '
@@ -189,22 +193,22 @@
 					</span>
 					<span style="width: 20px;">和</span>
 					<span>
-						<select name="s2" style="width: 100px;">';
+						<select name="s2" style="width: 110px;">';
 							foreach($surveys as $key => $value)
 								echo '<option value="'.$key.'">'.$value.'</option>';
 							echo '
 						</select>
 					</span>
-					<span style="width: 20px;"></span>
-					<span>选择分析方式:</span>
+					<span style="width: 10px;"></span>
+					<span style="width: 120px;">选择分析方式:</span>
 					<span>
-						<select name="mode" style="width: 100px;">
+						<select name="mode" style="width: 80px;">
 							<option value="1">地区</option>
 							<option value="2">企业性质</option>
 							<option value="3">行业</option>
 						</select>
 					</span>
-					<span>选择分析指标:</span>
+					<span style="width: 120px;">选择分析指标:</span>
 					<span>
 						<select name="type" style="width: 100px;">
 							<option value="1">企业总数</option>

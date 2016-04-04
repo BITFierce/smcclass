@@ -22,8 +22,9 @@
 	mysql_query("set names 'utf8'",$con);
 	
 	$result=mysql_query('SELECT DISTINCT SurveyStartTime,sum(FilingPeriodEmploymentNumber) AS FileNum,sum(SurveyPeriodEmploymentNumber) AS SurveyNum '.
-						'FROM dataacquisition INNER JOIN (SELECT SurveyID,SurveyStartTime FROM surveyperiod LIMIT 12 ORDER BY SurveyStartTime) AS surveyperiod '.
+						'FROM dataacquisition INNER JOIN (SELECT SurveyID,SurveyStartTime FROM surveyperiod ORDER BY SurveyStartTime LIMIT 12) AS surveyperiod '.
 						'GROUP BY SurveyID');
+
 	$dates=array();
 	$deltaNum=array();
 	$beginNum=null;

@@ -65,18 +65,9 @@
 					<div class="link" onclick="change(1)"><i class="fa fa-table"></i>报表管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u1">
 					<li><a href="report.php" target="inform">审核报表</a></li>
-					<li><a href="DataGather.html" target="inform">数据汇总</a></li>
 					</ul>
 				</li>
 				<li id="l2">
-					<div class="link" onclick="change(2)"><i class="fa fa-bar-chart"></i>数据分析<i class="fa fa-chevron-down"></i></div>
-					<ul class="submenu" id="u2">
-					<li><a href="sampling.html" target="inform">取样分析</a></li>
-					<li><a href="compare.html" target="inform">对比分析</a></li>
-					<li><a href="trend.html" target="inform">趋势分析</a></li>
-					</ul>
-				</li>
-				<li id="l3">
 					<div class="link" onclick="change(3)"><i class="fa fa-bell-o"></i>通知管理<i class="fa fa-chevron-down"></i></div>
 					<ul class="submenu" id="u3">
 					<li><a href="notice.php" target="inform">查看通知</a></li>
