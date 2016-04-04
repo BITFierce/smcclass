@@ -14,9 +14,7 @@
 	<link rel="stylesheet" href="../css/sampling.css" media="screen" type="text/css" />
 	<?php
 	include '../sql/sqlname.php';
-	$con=mysql_connect($sql_host,$sql_user,$sql_pass);
-	if (!$con)
-		die('Could not connect: ' . mysql_error());
+	$con=mysql_connect($sql_host,$sql_user,$sql_pass) or die('Could not connect: ' . mysql_error());
 	mysql_select_db($sql_name, $con);
 	mysql_query("set names 'utf8'",$con);
 	$result=mysql_query('SELECT CompanyAddr,count(CompanyNumber) AS num FROM company GROUP BY CompanyAddr');

@@ -25,7 +25,7 @@
         if (!$connect)
           die('Could not connect: ' . mysql_error());
         mysql_select_db($sql_name, $connect);
-        mysql_query("set names 'utf8'",$connect);
+		mysql_query("set names 'utf8'",$connect);
 ?>
 
 <script>

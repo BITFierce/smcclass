@@ -61,10 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$SurveyPeriodID=(int)$_POST['SurveyPeriodID'];
 	
 	//连接数据库
-	$connect=mysql_connect("localhost:3306","root","root")or die ("不能连接数据库");
-	//强转一下数据库字符
+	include '../sql/sqlname.php';
+	$connect=mysql_connect($sql_host,$sql_user,$sql_pass) or die('Could not connect: ' . mysql_error());
+	mysql_select_db($sql_name, $connect);
 	mysql_query("set names 'utf8'",$connect);
-	mysql_select_db("hrmdas",$connect)or die("选择数据库失败");
 	//获得对应的企业代码
 	$sql="select * from `company` where CompanyUsername='".$_SESSION['username']."';";
 	$result=mysql_query($sql,$connect);

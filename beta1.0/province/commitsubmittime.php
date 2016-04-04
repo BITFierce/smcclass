@@ -3,9 +3,10 @@
 	$Publisher=$_GET['Publisher'];
 	$SurveyID=$_GET['SurveyID'];
 	//连接数据库
-	$connect=mysql_connect("localhost:3306","root","root") or die("不能连接数据库");
+	include '../sql/sqlname.php';
+	$connect=mysql_connect($sql_host,$sql_user,$sql_pass) or die('Could not connect: ' . mysql_error());
+	mysql_select_db($sql_name, $connect);
 	mysql_query("set names 'utf8'",$connect);
-	mysql_select_db("hrmdas",$connect) or die("选择数据库错误");
 	$sql="delete from `surveyperiod` where SurveyID = '".$SurveyID."';";
 	$result = mysql_query($sql,$connect);
 	if($SurveyID=='')
