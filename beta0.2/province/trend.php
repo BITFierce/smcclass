@@ -19,6 +19,7 @@
 	if (!$con)
 		die('Could not connect: ' . mysql_error());
 	mysql_select_db($sql_name, $con);
+	mysql_query("set names 'utf8'",$con);
 	
 	$result=mysql_query('SELECT DISTINCT SurveyStartTime,sum(FilingPeriodEmploymentNumber) AS FileNum,sum(SurveyPeriodEmploymentNumber) AS SurveyNum '.
 						'FROM dataacquisition INNER JOIN (SELECT SurveyID,SurveyStartTime FROM surveyperiod LIMIT 12 ORDER BY SurveyStartTime) AS surveyperiod '.

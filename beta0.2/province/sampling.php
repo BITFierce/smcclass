@@ -18,7 +18,7 @@
 	if (!$con)
 		die('Could not connect: ' . mysql_error());
 	mysql_select_db($sql_name, $con);
-	
+	mysql_query("set names 'utf8'",$con);
 	$result=mysql_query('SELECT CompanyAddr,count(CompanyNumber) AS num FROM company GROUP BY CompanyAddr');
 	$nums=array();
 	while($row=mysql_fetch_array($result))
