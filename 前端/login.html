@@ -3,8 +3,8 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet"  type="text/css" href="css/login.css" />
-<script language="javascript"  charset="utf-8" src="js/jquery-2.0.0.min.js"></script>
+<link rel="stylesheet"  type="text/css" href="sub/css/login.css" />
+<script language="javascript"  charset="utf-8" src="sub/js/jquery-2.0.0.min.js"></script>
 <title>山东省人力资源市场数据采集系统</title>
 <style type="text/css">
 	.selected{
@@ -23,6 +23,7 @@
 		<ul>
 			<li id="l1" class="li"><a class="selected" onclick="UserChange(0)" href="javascript:void(0)">省用户登录</a></li>
 			<li id="l2" class="li"><a onclick="UserChange(1)" href="javascript:void(0)">企业用户登录</a></li>
+			<li id="l3" class="li"><a onclick="UserChange(2)" href="javascript:void(0)">市用户登录</a></li>
 		</ul>
 	</div>
 	<form id="login-container" name="Login" action="" method="post">
@@ -41,10 +42,17 @@
 		{
 			$("#l1 a").addClass("selected");
 			$("#l2 a").removeClass("selected");
+			$("#l3 a").removeClass("selected");
+		}
+		else if(a == 1){
+			$("#l1 a").removeClass("selected");
+			$("#l2 a").addClass("selected");
+			$("#l3 a").removeClass("selected");
 		}
 		else{
 			$("#l1 a").removeClass("selected");
-			$("#l2 a").addClass("selected");
+			$("#l2 a").removeClass("selected");
+			$("#l3 a").addClass("selected");
 		}
 	}
 </script>
