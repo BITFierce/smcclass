@@ -55,20 +55,19 @@
 				$result = mysql_query($sql, $connect);
 				while ($res = mysql_fetch_assoc($result))
 				{
-					if ($res['CheckLevel'] != "0")
-					{
-						echo "<div class=\"cstyle\" onclick=\"location = 'ReportDetail.php?rid=".$res["CompanyNumber"]."';\">";
-						echo "<span style=\"width:300px;\">".$res["CompanyNumber"]."</span>";
-						echo "<span style=\"width:300px;\">".$res["CompanyName"]."</span>";
-						echo "<span style=\"width:200px;\">".$res["CollectionTime"]."</span>";
-						if ($res["CheckLevel"] == "1")
-							echo "<span style=\"width:100px;\">"."未审核"."</span>";
-						else if ($res["CheckLevel"] == "2")
-							echo "<span style=\"width:100px;\">"."审核通过"."</span>";
-						else if ($res["CheckLevel"] == "3")
-							echo "<span style=\"width:100px;\">"."审核未通过"."</span>";
-						echo "</div>";
-					}
+					echo "<div class=\"cstyle\" onclick=\"location = 'ReportDetail.php?rid=".$res["CompanyNumber"]."';\">";
+					echo "<span style=\"width:300px;\">".$res["CompanyNumber"]."</span>";
+					echo "<span style=\"width:300px;\">".$res["CompanyName"]."</span>";
+					echo "<span style=\"width:200px;\">".$res["CollectionTime"]."</span>";
+					if ($res["CheckLevel"] == "0")
+						echo "<span style=\"width:100px;\">"."未审核"."</span>";
+					else if ($res["CheckLevel"] == "1")
+						echo "<span style=\"width:100px;\">"."审核通过待省审核"."</span>";
+					else if ($res["CheckLevel"] == "2")
+						echo "<span style=\"width:100px;\">"."审核通过"."</span>";
+					else if ($res["CheckLevel"] == "3")
+						echo "<span style=\"width:100px;\">"."审核未通过"."</span>";
+					echo "</div>";
 				}
 				mysql_free_result($result);
 			}
