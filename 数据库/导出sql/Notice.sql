@@ -1,35 +1,64 @@
-/*
-Navicat MySQL Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: 2016-04-01 04:24:40
+-- 服务器版本： 10.1.10-MariaDB
+-- PHP Version: 5.6.19
 
-Source Server         : localhost_3306
-Source Server Version : 50710
-Source Host           : localhost:3306
-Source Database       : database
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
-Target Server Type    : MYSQL
-Target Server Version : 50710
-File Encoding         : 65001
 
-Date: 2016-03-29 16:56:35
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SET FOREIGN_KEY_CHECKS=0;
+--
+-- Database: `hrmdas`
+--
 
--- ----------------------------
--- Table structure for `notice`
--- ----------------------------
-DROP TABLE IF EXISTS `notice`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `notice`
+--
+
 CREATE TABLE `notice` (
+  `NoticeID` int(11) NOT NULL,
   `Author` varchar(20) NOT NULL,
-  `Time` date NOT NULL,
+  `Type` varchar(20) DEFAULT NULL,
+  `Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Title` varchar(50) NOT NULL,
   `Text` varchar(2000) DEFAULT NULL,
   `spare1` varchar(20) DEFAULT NULL,
-  `spare2` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`Author`,`Time`),
-  CONSTRAINT `FK_Government` FOREIGN KEY (`Author`) REFERENCES `goverment` (`GovermentNumber`) ON DELETE CASCADE ON UPDATE CASCADE
+  `spare2` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of notice
--- ----------------------------
+--
+-- 转存表中的数据 `notice`
+--
+
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`NoticeID`);
+
+--
+-- 在导出的表使用AUTO_INCREMENT
+--
+
+--
+-- 使用表AUTO_INCREMENT `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `NoticeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
